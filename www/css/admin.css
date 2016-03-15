@@ -1,0 +1,167 @@
+@media (min-width: 768px) {
+	body {
+		margin-top: 50px;
+	}
+}
+
+#wrapper {
+	padding-left: 225px;
+}
+
+#page-wrapper {
+	padding: 10px;
+	width: 100%;
+}
+
+.side-nav {
+	position: fixed;
+	top: 50px;
+	width: 225px;
+	left: 225px;
+	margin-left: -225px;
+	border: none;
+	border-radius: 0;
+	overflow-y: auto;
+	background-color: #222222;
+	bottom: 0;
+	overflow-x: hidden;
+	padding-bottom: 40px;
+}
+
+.navbar-brand {
+	float: left;
+	height: 50px;
+	padding: 15px 15px;
+	font-size: 18px;
+	line-height: 20px;
+}
+
+.nav img {
+	display: block;
+	margin: auto;
+	padding-top: 30px;
+}
+
+.navbar {
+	min-height: 50px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+}
+
+.navbar-right {
+	margin-right: 10px;
+	color: white;
+	/* padding-top: 15px; */
+}
+
+.navbar-right li {
+	display: inline-block;
+	padding-top: 15px;
+	margin-right: 30px;
+	padding-bottom: 13px;
+}
+
+.navbar-right .ticket {
+	font-size: 0.8em;
+	display: block;
+	position: absolute;
+	background-color: red;
+	padding: 2px;
+	border-radius: 4px;
+	top: 5px;
+	right: -4px;
+}
+
+.side-nav > li > a {
+	width: 225px;
+}
+
+.huge {
+	font-size: 40px;
+}
+
+.white-text {
+	color: #FFFFFF;
+}
+
+/* PANELY */
+
+.panel-green {
+	background-color: #49BD4E;
+}
+
+.panel-red {
+	background-color: #d9534f;
+}
+
+.panel-orange {
+	background-color: #B77522;
+}
+
+.red {
+	color: red;
+}
+
+.zero-padding {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.width-25 {
+	width: 25%;
+}
+
+.width-50 {
+	width: 50%;
+}
+
+.relative {
+	position: relative;
+}
+
+/* uzivatele */
+
+.form-group {
+	width: 100%;
+}
+
+.form-group form {
+	display: table;
+	width: 100%;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+a:hover {
+	color: white;
+	text-decoration: none;
+}
+
+.input-group-addon {
+	position: relative;
+	overflow: hidden;
+}
+
+.input-group-addon input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	outline: none;
+	background: white;
+	cursor: pointer;
+	display: block;
+}
+
+.add-to-league{
+	float: right;
+	margin-top: 10px;
+}

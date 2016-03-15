@@ -1,0 +1,85 @@
+{block content}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">Zápasy</h1>
+		</div>
+	</div>
+	<div n:foreach="$flashes as $flash" n:class="alert, $flash->type">{$flash->message}</div>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<div class="row">
+					<a n:href="addClub">
+						<div class="col-xs-3">
+							<i class="fa fa-plus fa-5x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<div class="huge">Přidat nový zápas</div>
+							<div>do databáze</div>
+						</div>
+					</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-6">
+			<div class="panel panel-green white-text">
+				<div class="panel-heading">
+					<div class="row">
+						<div class="col-xs-3">
+							<i class="fa fa-database fa-5x"></i>
+						</div>
+						<div class="col-xs-9 text-right">
+							<div class="huge">102</div>
+							<div>Počet nadcházejících zápasů</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Vyhledat zápas týmu</h3>
+				</div>
+				<div class="panel-body">
+				{form ligaZapasy}
+					<div class="col-lg-4">						
+						{input liga}				
+					</div>
+					<div class="col-lg-4">
+						{snippet secondSnippet}
+							{input klub}
+						{/snippet}
+					</div>
+					<div class="col-lg-4">
+						{input send}
+					</div>
+				{/form}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+{include #jsCallback, input => liga, link => ligaChange}
+</script>
+{/block}
+
+{define #jsCallback}
+$('#{$control["ligaZapasy"][$input]->htmlId}').on('change', function() {
+    $.nette.ajax({
+        type: 'GET',
+        url: '{link {$link}!}',
+        data: {
+            'value': $(this).val(),
+        }
+    });
+});
+{/define}
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>{ifset title}{include title|striptags} | {/ifset}Nette Sandbox</title>
+
+	
+	<link rel="stylesheet" href="{$basePath}/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{$basePath}/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="{$basePath}/css/admin.css">
+	<link rel="stylesheet" href="{$basePath}/css/font-awesome.min.css">
+	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
+	<meta name="viewport" content="width=device-width">
+	{block scripts}
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
+	<script src="{$basePath}/js/nette.ajax.js"></script>
+	<script src="{$basePath}/js/main.js"></script>
+	<script src="{$basePath}/js/bootstrap.min.js"></script>
+	{/block}
+	{block head}{/block}
+</head>
+
+<body>
+	<div id="wrapper">
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<a class="navbar-brand" href="index.html">4Win Administration v1.0</a>
+			<div class="navbar-collapse navbar-ex1-collapse collapse">
+				<ul class="nav navbar-nav side-nav">
+						<li class="active">
+							<a n:href="User:">
+								<i class="fa fa-fw fa-dashboard"></i> 
+								Dashboard
+							</a>
+						</li>
+						<li>
+							<a n:href="User:">
+								<i class="fa fa-fw fa-users"></i> 
+								Uživatelé
+							</a>
+						</li>
+						<li>
+							<a n:href="Klub:">
+								<i class="fa fa-fw fa-futbol-o"></i> 
+								Kluby
+							</a>
+						</li>
+						<li>
+							<a n:href="User:">
+								<i class="fa fa-fw fa-male"></i> 
+								Hráči
+							</a>
+						</li>
+						<li>
+							<a n:href="User:">
+								<i class="fa fa-fw fa-trophy"></i> 
+								Ligy
+							</a>
+						</li>
+						<li>
+							<a n:href="Zapasy:">
+								<i class="fa fa-fw fa-book"></i> 
+								Zápasy
+							</a>
+						</li>
+						<li>
+							<a n:href="User:">
+								<i class="fa fa-fw fa-newspaper-o"></i> 
+								Novinky
+							</a>
+						</li>
+						<li>
+							<a n:href="User:">
+								<i class="fa fa-fw fa-pie-chart"></i> 
+								Statistiky
+							</a>
+						</li>
+						<li>
+							<a n:href="User:">
+								<i class="fa fa-fw fa-cog"></i> 
+								Nastavení
+							</a>
+						</li>
+						<img src="{$basePath}/images/logo_inverse.png" width="70"/>
+				</ul>
+				<ul class="nav navbar-right top-nav">
+					<li>
+                    <i class="fa fa-user"></i> Michal Malý
+                    </li>
+                    <li class="relative">
+                    <i class="fa fa-ticket"><span class="ticket">3</span></i>
+                    </li>
+                    <li>
+                    <i class="fa fa-sign-out"></i>
+                    </li>
+				</ul>
+			</div>
+			
+		</nav>
+		<div id="page-wrapper">
+		{include content}
+		</div>
+	
+	
+	</div>
+	
+</body>
+</html>
