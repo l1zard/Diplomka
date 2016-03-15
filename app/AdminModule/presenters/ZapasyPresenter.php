@@ -9,6 +9,7 @@
 namespace App\AdminModule\Presenters;
 
 use App\Model\LeagueModel;
+use App\Model\MatchModel;
 use Nette;
 use Nette\Application\UI;
 
@@ -16,6 +17,9 @@ class ZapasyPresenter extends BasePresenter {
 
 	/** @var LeagueModel @inject */
 	public $leagueModel;
+
+	/** @var MatchModel @inject */
+	public $matchModel;
 
 	public function renderDefault() {
 		$this->template->_form = $this['ligaZapasy'];
@@ -51,8 +55,10 @@ class ZapasyPresenter extends BasePresenter {
 		return $form;
 	}
 
-	public function ligaZapasySucceeded() {
-
+	public function ligaZapasySucceeded(UI\Form $form) {
+		$values = $form->getHttpData();
+		var_dump($values);
+		//$this->template->matches = $this->matchModel->getMatches($values->klub);
 	}
 
 }
