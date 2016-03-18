@@ -49,7 +49,8 @@ class ZapasyPresenter extends BasePresenter {
 		$form->addSelect('klub', "Vyber klub")
 			->setPrompt('Zvolte nejdříve ligu')
 			->setAttribute('class', 'form-control');
-		$form->addSubmit('send', 'Submit');
+		$form->addSubmit('send', 'Vyhledat')
+			->setAttribute('class', 'btn btn-sm btn-success');
 		$form->onSuccess[] = $this->ligaZapasySucceeded;
 
 		return $form;
@@ -57,8 +58,22 @@ class ZapasyPresenter extends BasePresenter {
 
 	public function ligaZapasySucceeded(UI\Form $form) {
 		$values = $form->getHttpData();
-		var_dump($values);
-		//$this->template->matches = $this->matchModel->getMatches($values->klub);
+		$form->setDefaults($values);
+		$this->template->matches = $this->matchModel->getMatches($values['klub']);
+		
+	}
+	
+	protected function createComponentEditMatch(){
+		
+	}
+	public function actionDetail($id){
+		$this->template->match = $this->matchModel->getMatchByID($id);
+		if(!$this->matchModel->getMatchStatus($id)){
+			$this->flashMessage('Zápas nebyl ukončen! Výsledek není vyplňen', 'alert-danger');	
+		}
+		else{
+			$this->flashMessage('Zápas již byl ukončen!', 'alert-success');	
+		}
 	}
 
 }

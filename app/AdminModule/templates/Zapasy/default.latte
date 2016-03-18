@@ -70,15 +70,19 @@
 								<th>Hosté</th>
 								<th>Skóre domací</th>
 								<th>Skóre hosté</th>
+								<th></th>
 							</tr>
 							</thead>
 							<tbody>
 								{foreach $matches as $match}
-									<td>$match->datum_zapasu</td>
-									<td>$match->domaci.nazev_klubu</td>
-									<td>$match->hoste.nazev_klubu</td>
-									<td>$match->skore_domaci</td>
-									<td>$match->skore_hoste</td>
+								<tr>
+									<td>{$match->datum_zapasu}</td>
+									<td>{$match->klubdomaci}</td>
+									<td>{$match->klubhoste}</td>
+									<td>{$match->skoredomaci}</td>
+									<td>{$match->skorehoste}</td>
+									<td><a n:href="Zapasy:detail $match->id_zapas" class="btn btn-sm btn-success">Detail zápasu</a></td>
+								</tr>
 								{/foreach}
 							</tbody>
 						</table>
