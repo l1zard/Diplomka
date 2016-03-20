@@ -70,9 +70,11 @@ class ZapasyPresenter extends BasePresenter {
 		$this->template->match = $this->matchModel->getMatchByID($id);
 		if(!$this->matchModel->getMatchStatus($id)){
 			$this->flashMessage('Zápas nebyl ukončen! Výsledek není vyplňen', 'alert-danger');	
+			$this->template->isFinish = false;
 		}
 		else{
 			$this->flashMessage('Zápas již byl ukončen!', 'alert-success');	
+			$this->template->isFinish = true;
 		}
 	}
 
