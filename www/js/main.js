@@ -17,3 +17,9 @@ $("form.ajax :submit").on("click", function () {
     $(this).ajaxSubmit();
     return false;
 });
+
+$.nette.ext('addKurzRemiza', {
+    success: function (payload) {
+        $('#myModal').modal('show');
+    }
+});

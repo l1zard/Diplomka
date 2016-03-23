@@ -97,7 +97,8 @@ class ZapasyPresenter extends BasePresenter {
 		$form->getElementPrototype()->class('ajax');
 		$form->addText('remiza')
 			->setAttribute('class', 'form-control text-center width-50 error');
-		$form->addSubmit('send');
+		$form->addSubmit('send', 'Uložit')
+			->setAttribute('class', 'btn btn-sm btn-success');
 		$form->onSuccess[] = $this->addKurzRemizaSucceeded;
 		return $form;
 	}
