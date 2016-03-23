@@ -11,11 +11,13 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Exportování struktury databáze pro
+DROP DATABASE IF EXISTS `sazkovka`;
 CREATE DATABASE IF NOT EXISTS `sazkovka` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_czech_ci */;
 USE `sazkovka`;
 
 
 -- Exportování struktury pro tabulka sazkovka.druh_platby
+DROP TABLE IF EXISTS `druh_platby`;
 CREATE TABLE IF NOT EXISTS `druh_platby` (
   `id_druh_platby` int(11) NOT NULL AUTO_INCREMENT,
   `typ_platby` varchar(100) COLLATE utf8_czech_ci NOT NULL,
@@ -29,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `druh_platby` (
 
 
 -- Exportování struktury pro tabulka sazkovka.hrac
+DROP TABLE IF EXISTS `hrac`;
 CREATE TABLE IF NOT EXISTS `hrac` (
   `id_hrac` int(11) NOT NULL AUTO_INCREMENT,
   `jmeno` varchar(20) COLLATE utf8_czech_ci NOT NULL,
@@ -46,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `hrac` (
 
 
 -- Exportování struktury pro tabulka sazkovka.klub
+DROP TABLE IF EXISTS `klub`;
 CREATE TABLE IF NOT EXISTS `klub` (
   `id_klub` int(11) NOT NULL AUTO_INCREMENT,
   `nazev_klubu` varchar(100) COLLATE utf8_czech_ci NOT NULL,
@@ -67,6 +71,7 @@ INSERT INTO `klub` (`id_klub`, `nazev_klubu`, `stadion`, `rok_zalozeni`, `webova
 
 
 -- Exportování struktury pro tabulka sazkovka.komentar
+DROP TABLE IF EXISTS `komentar`;
 CREATE TABLE IF NOT EXISTS `komentar` (
   `id_komentar` int(11) NOT NULL AUTO_INCREMENT,
   `datum_vlozeni` datetime NOT NULL,
@@ -86,6 +91,7 @@ CREATE TABLE IF NOT EXISTS `komentar` (
 
 
 -- Exportování struktury pro tabulka sazkovka.liga
+DROP TABLE IF EXISTS `liga`;
 CREATE TABLE IF NOT EXISTS `liga` (
   `id_liga` int(11) NOT NULL AUTO_INCREMENT,
   `nazev_ligy` varchar(100) COLLATE utf8_czech_ci NOT NULL,
@@ -105,6 +111,7 @@ INSERT INTO `liga` (`id_liga`, `nazev_ligy`, `id_narodnost`, `logo`) VALUES
 
 
 -- Exportování struktury pro tabulka sazkovka.narodnost
+DROP TABLE IF EXISTS `narodnost`;
 CREATE TABLE IF NOT EXISTS `narodnost` (
   `id_narodnost` int(11) NOT NULL AUTO_INCREMENT,
   `narodnost` varchar(50) COLLATE utf8_czech_ci NOT NULL,
@@ -121,6 +128,7 @@ INSERT INTO `narodnost` (`id_narodnost`, `narodnost`, `zkratka`) VALUES
 
 
 -- Exportování struktury pro tabulka sazkovka.novinka
+DROP TABLE IF EXISTS `novinka`;
 CREATE TABLE IF NOT EXISTS `novinka` (
   `id_novinka` int(11) NOT NULL AUTO_INCREMENT,
   `nazev` varchar(200) COLLATE utf8_czech_ci NOT NULL,
@@ -135,6 +143,7 @@ CREATE TABLE IF NOT EXISTS `novinka` (
 
 
 -- Exportování struktury pro tabulka sazkovka.platba
+DROP TABLE IF EXISTS `platba`;
 CREATE TABLE IF NOT EXISTS `platba` (
   `id_platba` int(11) NOT NULL AUTO_INCREMENT,
   `datum_platby` datetime NOT NULL,
@@ -157,12 +166,13 @@ CREATE TABLE IF NOT EXISTS `platba` (
 
 
 -- Exportování struktury pro tabulka sazkovka.prilezitost
+DROP TABLE IF EXISTS `prilezitost`;
 CREATE TABLE IF NOT EXISTS `prilezitost` (
   `id_prilezitost` int(11) NOT NULL AUTO_INCREMENT,
   `kurz` decimal(10,2) DEFAULT NULL,
   `id_zapas` int(11) NOT NULL,
   `id_typ_prilezitosti` int(11) DEFAULT NULL,
-  `id_stav_prilezitost` int(11) DEFAULT NULL,
+  `id_stav_prilezitost` int(11) DEFAULT '1',
   PRIMARY KEY (`id_prilezitost`),
   KEY `IX_Relationship14` (`id_zapas`),
   KEY `IX_Relationship19` (`id_typ_prilezitosti`),
@@ -170,14 +180,18 @@ CREATE TABLE IF NOT EXISTS `prilezitost` (
   CONSTRAINT `Relationship14` FOREIGN KEY (`id_zapas`) REFERENCES `zapas` (`id_zapas`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `Relationship19` FOREIGN KEY (`id_typ_prilezitosti`) REFERENCES `typ_prilezitost` (`id_typ_prilezitost`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `Relationship20` FOREIGN KEY (`id_stav_prilezitost`) REFERENCES `stav_prilezitost` (`id_stav_prilezitost`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 -- Exportování dat pro tabulku sazkovka.prilezitost: ~0 rows (přibližně)
 /*!40000 ALTER TABLE `prilezitost` DISABLE KEYS */;
+INSERT INTO `prilezitost` (`id_prilezitost`, `kurz`, `id_zapas`, `id_typ_prilezitosti`, `id_stav_prilezitost`) VALUES
+	(12, 2.00, 3, 2, 1),
+	(13, 3.00, 3, 1, 1);
 /*!40000 ALTER TABLE `prilezitost` ENABLE KEYS */;
 
 
 -- Exportování struktury pro tabulka sazkovka.prilezitost_tiketu
+DROP TABLE IF EXISTS `prilezitost_tiketu`;
 CREATE TABLE IF NOT EXISTS `prilezitost_tiketu` (
   `id_prilezitost` int(11) NOT NULL,
   `id_tiket` int(11) NOT NULL,
@@ -193,6 +207,7 @@ CREATE TABLE IF NOT EXISTS `prilezitost_tiketu` (
 
 
 -- Exportování struktury pro tabulka sazkovka.role
+DROP TABLE IF EXISTS `role`;
 CREATE TABLE IF NOT EXISTS `role` (
   `id_role` int(11) NOT NULL AUTO_INCREMENT,
   `nazev_role` varchar(100) COLLATE utf8_czech_ci NOT NULL,
@@ -209,6 +224,7 @@ INSERT INTO `role` (`id_role`, `nazev_role`, `popis_role`) VALUES
 
 
 -- Exportování struktury pro tabulka sazkovka.sezona
+DROP TABLE IF EXISTS `sezona`;
 CREATE TABLE IF NOT EXISTS `sezona` (
   `id_sezony` int(11) NOT NULL AUTO_INCREMENT,
   `sezona` varchar(50) COLLATE utf8_czech_ci NOT NULL,
@@ -224,6 +240,7 @@ INSERT INTO `sezona` (`id_sezony`, `sezona`, `aktivni`) VALUES
 
 
 -- Exportování struktury pro tabulka sazkovka.stav
+DROP TABLE IF EXISTS `stav`;
 CREATE TABLE IF NOT EXISTS `stav` (
   `id_stav` int(11) NOT NULL AUTO_INCREMENT,
   `stav` varchar(100) COLLATE utf8_czech_ci NOT NULL,
@@ -236,18 +253,24 @@ CREATE TABLE IF NOT EXISTS `stav` (
 
 
 -- Exportování struktury pro tabulka sazkovka.stav_prilezitost
+DROP TABLE IF EXISTS `stav_prilezitost`;
 CREATE TABLE IF NOT EXISTS `stav_prilezitost` (
   `id_stav_prilezitost` int(11) NOT NULL AUTO_INCREMENT,
   `stav` varchar(50) COLLATE utf8_czech_ci NOT NULL,
   PRIMARY KEY (`id_stav_prilezitost`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.stav_prilezitost: ~0 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.stav_prilezitost: ~3 rows (přibližně)
 /*!40000 ALTER TABLE `stav_prilezitost` DISABLE KEYS */;
+INSERT INTO `stav_prilezitost` (`id_stav_prilezitost`, `stav`) VALUES
+	(1, 'nevyhodnocena'),
+	(2, 'vyhodnocena'),
+	(3, 'zrušena');
 /*!40000 ALTER TABLE `stav_prilezitost` ENABLE KEYS */;
 
 
 -- Exportování struktury pro tabulka sazkovka.tabulka
+DROP TABLE IF EXISTS `tabulka`;
 CREATE TABLE IF NOT EXISTS `tabulka` (
   `id_klub` int(11) NOT NULL,
   `id_liga` int(11) NOT NULL,
@@ -277,6 +300,7 @@ INSERT INTO `tabulka` (`id_klub`, `id_liga`, `id_sezony`, `vyhry`, `remizy`, `pr
 
 
 -- Exportování struktury pro tabulka sazkovka.tiket
+DROP TABLE IF EXISTS `tiket`;
 CREATE TABLE IF NOT EXISTS `tiket` (
   `id_tiket` int(11) NOT NULL AUTO_INCREMENT,
   `castka` int(11) NOT NULL,
@@ -296,18 +320,24 @@ CREATE TABLE IF NOT EXISTS `tiket` (
 
 
 -- Exportování struktury pro tabulka sazkovka.typ_prilezitost
+DROP TABLE IF EXISTS `typ_prilezitost`;
 CREATE TABLE IF NOT EXISTS `typ_prilezitost` (
   `id_typ_prilezitost` int(11) NOT NULL AUTO_INCREMENT,
   `typ` varchar(20) COLLATE utf8_czech_ci NOT NULL,
   PRIMARY KEY (`id_typ_prilezitost`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.typ_prilezitost: ~0 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.typ_prilezitost: ~2 rows (přibližně)
 /*!40000 ALTER TABLE `typ_prilezitost` DISABLE KEYS */;
+INSERT INTO `typ_prilezitost` (`id_typ_prilezitost`, `typ`) VALUES
+	(1, 'remiza'),
+	(2, 'domaci'),
+	(3, 'hoste');
 /*!40000 ALTER TABLE `typ_prilezitost` ENABLE KEYS */;
 
 
 -- Exportování struktury pro tabulka sazkovka.uzivatel
+DROP TABLE IF EXISTS `uzivatel`;
 CREATE TABLE IF NOT EXISTS `uzivatel` (
   `id_uzivatel` int(11) NOT NULL AUTO_INCREMENT,
   `uzivatelske_jmeno` varchar(50) COLLATE utf8_czech_ci NOT NULL,
@@ -337,6 +367,7 @@ INSERT INTO `uzivatel` (`id_uzivatel`, `uzivatelske_jmeno`, `heslo`, `email`, `d
 
 
 -- Exportování struktury pro tabulka sazkovka.zapas
+DROP TABLE IF EXISTS `zapas`;
 CREATE TABLE IF NOT EXISTS `zapas` (
   `id_zapas` int(11) NOT NULL AUTO_INCREMENT,
   `datum_zapasu` datetime NOT NULL,
@@ -346,6 +377,7 @@ CREATE TABLE IF NOT EXISTS `zapas` (
   `Informace` text COLLATE utf8_czech_ci,
   `id_hoste` int(11) NOT NULL,
   `id_klub` int(11) NOT NULL,
+  `zobrazit` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_zapas`),
   KEY `IX_Relationship17` (`id_hoste`),
   KEY `IX_Relationship18` (`id_klub`),
@@ -355,13 +387,14 @@ CREATE TABLE IF NOT EXISTS `zapas` (
 
 -- Exportování dat pro tabulku sazkovka.zapas: ~2 rows (přibližně)
 /*!40000 ALTER TABLE `zapas` DISABLE KEYS */;
-INSERT INTO `zapas` (`id_zapas`, `datum_zapasu`, `kolo`, `skore_domaci`, `skore_hoste`, `Informace`, `id_hoste`, `id_klub`) VALUES
-	(2, '2016-03-06 14:00:00', 1, 3, 1, NULL, 1, 2),
-	(3, '2016-03-14 17:00:00', 2, NULL, NULL, NULL, 2, 1);
+INSERT INTO `zapas` (`id_zapas`, `datum_zapasu`, `kolo`, `skore_domaci`, `skore_hoste`, `Informace`, `id_hoste`, `id_klub`, `zobrazit`) VALUES
+	(2, '2016-03-06 14:00:00', 1, 3, 1, NULL, 1, 2, 0),
+	(3, '2016-03-14 17:10:00', 2, NULL, NULL, NULL, 2, 1, 0);
 /*!40000 ALTER TABLE `zapas` ENABLE KEYS */;
 
 
 -- Exportování struktury pro tabulka sazkovka.zprava
+DROP TABLE IF EXISTS `zprava`;
 CREATE TABLE IF NOT EXISTS `zprava` (
   `id_zprava` int(11) NOT NULL AUTO_INCREMENT,
   `datum_zpravy` datetime NOT NULL,

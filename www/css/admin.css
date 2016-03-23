@@ -112,7 +112,7 @@
 }
 
 .width-50 {
-	width: 50%;
+	width: 50% !important;
 }
 
 .relative {
@@ -164,4 +164,22 @@ a:hover {
 .add-to-league{
 	float: right;
 	margin-top: 10px;
+}
+
+.error{
+	border-color: rgba(193, 43, 43, 0.47);
+    background-color: rgba(185, 28, 28, 0.15);
+}
+.done{
+	background-color: rgba(37, 187, 37, 0.35);
+}
+#ajax-spinner {
+    position:fixed;
+    left: 50%;
+    top: 50%;
+    margin: -15px 0 0 -15px;
+    background: white url('../images/spinner.gif') no-repeat 50% 50%;
+    padding: 13px;
+    border: 2px solid #CCC;
+    font-size: 0;
 }

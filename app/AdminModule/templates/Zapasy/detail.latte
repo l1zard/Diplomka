@@ -1,62 +1,159 @@
 {block content}
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-lg-12">
-			<h1 class="page-header">Zápas - Detail</h1>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Zápas - Detail</h1>
+			</div>
 		</div>
-	</div>
-	<div n:foreach="$flashes as $flash" n:class="alert, $flash->type">{$flash->message}</div>
-	<div class="row">
-		<div class="col-lg-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Detail Zápasu</h3>
-				</div>
-				<div class="panel-body">
-					<div class="form-group input-group col-lg-2">
-						<span class="input-group-addon width-25">Datum zápasu</span>
-						<span class="form-control text-center">{$match->datum_zapasu|date: '%d.%m.%Y %H:%M'}</span>
-					</div>
-					<div class="form-group input-group col-lg-2">
-						<span class="input-group-addon width-25">Domací</span>
-						<span class="form-control text-center">{$match->klubdomaci}</span>
-					</div>
-					<div class="form-group input-group col-lg-2">
-						<span class="input-group-addon width-25">Hosté</span>
-						<span class="form-control text-center">{$match->klubhoste}</span>
-					</div>
-					{if $isFinish}
-						<div class="form-group input-group col-lg-2">
-							<span class="input-group-addon width-25">Výsledek</span>
-							<span class="form-control text-center">{$match->skoredomaci} : {$match->skorehoste}</span>
+		{snippet flashMessages}
+			<div n:foreach="$flashes as $flash" n:class="alert, $flash->type">{$flash->message}</div>
+		{/snippet}
+		{snippet finishArea}
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Detail Zápasu</h3>
 						</div>
-					{/if}
+						<div class="panel-body">
+							<div class="form-group input-group col-lg-2">
+								<span class="input-group-addon width-25">Datum zápasu</span>
+								<span class="form-control text-center">{$match->datum_zapasu|date: '%d.%m.%Y %H:%M'}</span>
+							</div>
+							<div class="form-group input-group col-lg-2">
+								<span class="input-group-addon width-25">Domací</span>
+								<span class="form-control text-center">{$match->klubdomaci}</span>
+							</div>
+							<div class="form-group input-group col-lg-2">
+								<span class="input-group-addon width-25">Hosté</span>
+								<span class="form-control text-center">{$match->klubhoste}</span>
+							</div>
+							{if $isFinish}
+								<div class="form-group input-group col-lg-2">
+									<span class="input-group-addon width-25">Výsledek</span>
+									<span class="form-control text-center">{$match->skoredomaci} : {$match->skorehoste}</span>
+								</div>
+							{/if}
+						</div>
+					</div>
 				</div>
+				{if !$isFinish}
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Vytvořit příležitosti</h3>
+							</div>
+							<div class="panel-body">
+
+								{snippet domaciSnippet}
+									{form addKurzDomaci}
+										<div class="form-group input-group col-lg-2">
+											<span class="input-group-addon width-25">Kurz domací</span>
+											{input domaci}
+											<!--<button type="button" class="btn btn-sm btn-success ajax" id="submit-domaciKurz">Uložit</button>!-->
+											{input send}
+										</div>
+									{/form}
+								{/snippet}
+								{snippet remizaSnippet}
+									{form addKurzRemiza}
+										<div class="form-group input-group col-lg-2">
+											<span class="input-group-addon width-25">Kurz remíza</span>
+											{input remiza}
+											<!--<button type="button" class="btn btn-sm btn-success">Uložit</button>!-->
+											{input send}
+										</div>
+									{/form}
+								{/snippet}
+								<div class="form-group input-group col-lg-2">
+									<span class="input-group-addon width-25">Kurz hosté</span>
+									<input type="text" class="form-control text-center width-50 error" />
+									<button type="button" class="btn btn-sm btn-success">Uložit</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h3 class="panel-title">Vyplnit výsledek zápasu</h3>
+							</div>
+							<div class="panel-body">
+								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
+							</div>
+						</div>
+					</div>
+				{/if}
 			</div>
-		</div>
-		{if !$isFinish}
-		<div class="col-lg-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">Vyplnit výsledek zápasu</h3>
-				</div>
-				<div class="panel-body">
-					<div class="form-group input-group col-lg-2">
-						<span class="input-group-addon width-25">Datum zápasu</span>
-						<span class="form-control text-center">{$match->datum_zapasu}</span>
-					</div>
-					<div class="form-group input-group col-lg-2">
-						<span class="input-group-addon width-25">Domací</span>
-						<span class="form-control text-center">{$match->klubdomaci}</span>
-					</div>
-					<div class="form-group input-group col-lg-2">
-						<span class="input-group-addon width-25">Hosté</span>
-						<span class="form-control text-center">{$match->klubhoste}</span>
-					</div>
-				</div>
-			</div>
-		</div>
-		{/if}
+		{/snippet}
 	</div>
-</div>
+	<!-- MODAL DIALOG !-->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Vyplnit výsledek zápasu</h4>
+				</div>
+				{snippet resultAdd}
+					{form addResult}
+						<div class="modal-body">
+							<div class="form-group input-group col-lg-2">
+								<span class="input-group-addon width-25">Domací ({$match->klubdomaci})</span>
+								{input domaci}
+							</div>
+							<div class="form-group input-group col-lg-2">
+								<span class="input-group-addon width-25">Hosté ({$match->klubhoste})</span>
+								{input hoste}
+							</div>
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal" id="frm-addResult-submit">Potvrdit</button>
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					{/form}
+				{/snippet}
+			</div>
+		</div>
+	</div>
+	<!-- END DIALOG !-->
+
+
+	<script>
+		{include #jsCallback, input => send, link => ajaxResultChange}
+	</script>
+
+	<script>
+		{include #jsKurz, input => frm-addKurzDomaci-domaci, link => ajaxDomaciKurz, submit => frm-addKurzDomaci}
+	</script>
 {/block}
+
+{define #jsCallback}
+	$('#frm-addResult-submit').on('click', function() {
+	$.nette.ajax({
+	type: 'POST',
+	url: '{link {$link}!}',
+	data: {
+	'domaci': $('#{$control["addResult"]['domaci']->htmlId}').val(),
+	'hoste': $('#{$control["addResult"]['hoste']->htmlId}').val(),
+	'id' : {$match->id_zapas},
+	}
+	});
+	});
+{/define}
+
+{define #jsKurz}
+	$('#{$submit} input[type=submit]').on('click', function() {
+
+	$.nette.ajax({
+	type: 'POST',
+	url: '{link {$link}!}',
+	data: {
+	'kurz' : $('#{$input}').val(),
+	'id' : {$match->id_zapas}
+	}
+	});
+	return false;
+	});
+{/define}

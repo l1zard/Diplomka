@@ -33,6 +33,10 @@ class MatchModel extends Nette\Object {
 		WHERE id_zapas = ?", $idMatch)->fetch();
 	}
 	
+	public function addResultByMatchID($id, $domaci, $hoste){
+		$this->database->query("UPDATE ZAPAS SET skore_domaci = ?, skore_hoste = ? WHERE id_zapas = ?", $domaci, $hoste, $id);
+	}
+	
 	public function getMatchStatus($idMatch){
 		$match = $this->getMatchByID($idMatch);
 		if ($match->skoredomaci == null && $match->skorehoste == null){
@@ -41,6 +45,25 @@ class MatchModel extends Nette\Object {
 		else{
 			return true;
 		}
+	}
+	
+	
+	
+	// příležitosti
+	
+	public function addOpportunity($idZapas, $typ, $kurz){
+		$row = $this->getOpportunity($idZapas, $typ);
+		if($row != null){
+			$this->database->query("UPDATE prilezitost SET kurz = ? WHERE id_zapas = ? AND id_typ_prilezitosti = ?", $kurz, $idZapas, $typ);
+		}
+		else{
+			$this->database->query("INSERT INTO prilezitost(kurz, id_zapas, id_typ_prilezitosti) VALUES(?,?,?)", $kurz, $idZapas, $typ);
+		}
+	}
+	
+	public function getOpportunity($idZapas, $typ){
+		$row = $this->database->query("SELECT kurz, id_zapas, id_typ_prilezitosti, id_stav_prilezitost FROM prilezitost WHERE id_zapas = ? AND id_typ_prilezitosti = ?", $idZapas, $typ)->fetch();
+		return $row;
 	}
 	
 	
