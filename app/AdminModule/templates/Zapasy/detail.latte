@@ -44,13 +44,11 @@
 								<h3 class="panel-title">Vytvořit příležitosti</h3>
 							</div>
 							<div class="panel-body">
-
 								{snippet domaciSnippet}
 									{form addKurzDomaci}
 										<div class="form-group input-group col-lg-2">
 											<span class="input-group-addon width-25">Kurz domací</span>
 											{input domaci}
-											<!--<button type="button" class="btn btn-sm btn-success ajax" id="submit-domaciKurz">Uložit</button>!-->
 											{input send}
 										</div>
 									{/form}
@@ -60,16 +58,37 @@
 										<div class="form-group input-group col-lg-2">
 											<span class="input-group-addon width-25">Kurz remíza</span>
 											{input remiza}
-											<!--<button type="button" class="btn btn-sm btn-success">Uložit</button>!-->
 											{input send}
 										</div>
 									{/form}
 								{/snippet}
-								<div class="form-group input-group col-lg-2">
-									<span class="input-group-addon width-25">Kurz hosté</span>
-									<input type="text" class="form-control text-center width-50 error" />
-									<button type="button" class="btn btn-sm btn-success">Uložit</button>
-								</div>
+								{snippet hosteSnippet}
+									{form addKurzHoste}
+										<div class="form-group input-group col-lg-2">
+											<span class="input-group-addon width-25">Kurz hosté</span>
+											{input hoste}
+											{input send}
+										</div>
+									{/form}
+								{/snippet}
+								{snippet showMatchInfoSnippet}
+									{ifset $showMatchInfo}
+										<div class="alert alert-{$showMatchInfoClass}">
+											{$showMatchInfo}
+										</div>
+										{if $showMatchInfoClass == "danger"}
+											<script>
+												$('#checkBoxShowMatch').trigger('click');
+											</script>
+										{/if}
+										{if $showMatchInfoClass == "success"}
+											<script>
+												$('#checkBoxShowMatch').prop('disabled', true);
+											</script>
+										{/if}
+									{/ifset}
+								{/snippet}
+								<input type="checkbox" data-toggle="toggle" id="checkBoxShowMatch" data-on="Zobrazeno" data-off="Nezobrazeno" data-onstyle="success" data-offstyle="danger">
 							</div>
 						</div>
 					</div>
@@ -118,15 +137,74 @@
 		</div>
 	</div>
 	<!-- END DIALOG !-->
+	<!-- MODAL DIALOG !-->
+	<div class="modal fade" id="kurzEdited" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Editace kurzu</h4>
+				</div>
+				<div class="modal-body">
+					{snippet kurzEdit}
+						{ifset $editKurz}
+							<div class="{$editKurz['class']}">
+								{$editKurz['text']}
+							</div>
+						{/ifset}
+					{/snippet}
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END DIALOG !-->
+	<!-- MODAL DIALOG !-->
+	<div class="modal fade" id="showMatch" role="dialog">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Zobrazení zápasu</h4>
+				</div>
+				<div class="modal-body">
+					{snippet showMatchSnippet}
+						{ifset $showMatchModalText}
+							{$showMatchModalText}
+						{/ifset}
+					{/snippet}
+				</div>
+				<div class="modal-footer">
+					<a n:href="showMatch!" class="btn btn-default ajax" onclick="$('.modal').modal('hide');">
+						Ano
+					</a>
+					<button type="button" class="btn btn-default" data-dismiss="modal" id="deniedShowMatch">Ne</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- END DIALOG !-->
 
+	<script>
+		$.nette.ext('addKurzRemiza', {
+			success: function(payload) {
+				$.each(payload['snippets'], function(key, element) {
+					if(key.indexOf('domaciSnippet') > 0 || key.indexOf('remizaSnippet') > 0 || key.indexOf('hosteSnippet') > 0) {
+						$('#kurzEdited').modal('show');
+					}
+				});
 
+			}
+		});
+	</script>
 	<script>
 		{include #jsCallback, input => send, link => ajaxResultChange}
 	</script>
 
-	<script>
-		{include #jsKurz, input => frm-addKurzDomaci-domaci, link => ajaxDomaciKurz, submit => frm-addKurzDomaci}
-	</script>
+
+
 {/block}
 
 {define #jsCallback}
@@ -143,17 +221,3 @@
 	});
 {/define}
 
-{define #jsKurz}
-	$('#{$submit} input[type=submit]').on('click', function() {
-
-	$.nette.ajax({
-	type: 'POST',
-	url: '{link {$link}!}',
-	data: {
-	'kurz' : $('#{$input}').val(),
-	'id' : {$match->id_zapas}
-	}
-	});
-	return false;
-	});
-{/define}

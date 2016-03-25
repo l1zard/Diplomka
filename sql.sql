@@ -180,13 +180,14 @@ CREATE TABLE IF NOT EXISTS `prilezitost` (
   CONSTRAINT `Relationship14` FOREIGN KEY (`id_zapas`) REFERENCES `zapas` (`id_zapas`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `Relationship19` FOREIGN KEY (`id_typ_prilezitosti`) REFERENCES `typ_prilezitost` (`id_typ_prilezitost`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `Relationship20` FOREIGN KEY (`id_stav_prilezitost`) REFERENCES `stav_prilezitost` (`id_stav_prilezitost`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.prilezitost: ~0 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.prilezitost: ~3 rows (přibližně)
 /*!40000 ALTER TABLE `prilezitost` DISABLE KEYS */;
 INSERT INTO `prilezitost` (`id_prilezitost`, `kurz`, `id_zapas`, `id_typ_prilezitosti`, `id_stav_prilezitost`) VALUES
-	(12, 2.00, 3, 2, 1),
-	(13, 3.00, 3, 1, 1);
+	(16, 3.00, 3, 2, 1),
+	(17, 2.00, 3, 1, 1),
+	(20, 2.00, 3, 3, 1);
 /*!40000 ALTER TABLE `prilezitost` ENABLE KEYS */;
 
 
@@ -389,7 +390,7 @@ CREATE TABLE IF NOT EXISTS `zapas` (
 /*!40000 ALTER TABLE `zapas` DISABLE KEYS */;
 INSERT INTO `zapas` (`id_zapas`, `datum_zapasu`, `kolo`, `skore_domaci`, `skore_hoste`, `Informace`, `id_hoste`, `id_klub`, `zobrazit`) VALUES
 	(2, '2016-03-06 14:00:00', 1, 3, 1, NULL, 1, 2, 0),
-	(3, '2016-03-14 17:10:00', 2, NULL, NULL, NULL, 2, 1, 0);
+	(3, '2016-03-27 17:10:00', 2, NULL, NULL, NULL, 2, 1, 1);
 /*!40000 ALTER TABLE `zapas` ENABLE KEYS */;
 
 
