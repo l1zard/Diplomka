@@ -9,22 +9,54 @@
 	<meta charset="utf-8">
 
 	<title>{ifset title}{include title|striptags} | {/ifset}Nette Sandbox</title>
-
+	<link rel="stylesheet" href="{$basePath}/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{$basePath}/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="{$basePath}/css/style.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 	<meta name="viewport" content="width=device-width">
+
+	{block scripts}
+		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
+		<script src="{$basePath}/js/bootstrap.min.js"></script>
+	{/block}
 	{block head}{/block}
 </head>
 
 <body>
-	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+		<div class="header">
+            <div class="container">
+			    <div class="top-header">
+                    <span>Registrace</span>
+                    <span>Zapomenuté heslo</span>
+			</div>
+			    <div class="down-header">
+                    <div class="logo">
+                        <img src="{$basePath}/images/logo_inverse.png" />
+                    </div>
+                    <div class="user">
+                        {form loginUser}
+                            {input username}
+                            {input password}
+                        {/form}
+                    </div>
+			    </div>
+            </div>
+		</div>
+        <div class="menu">
+            <div class="container">
+                <ul>
+                    <li>Kurzová nabídka</li>
+                    <li>Novinky</li>
+                    <li>Výsledky</li>
+                    <li>Fórum</li>
+                    <li>Podpora</li>
+                </ul>
+            </div>
+        </div>
 
 	{include content}
 
-	{block scripts}
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-	<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
-	<script src="{$basePath}/js/main.js"></script>
-	{/block}
+
 </body>
 </html>

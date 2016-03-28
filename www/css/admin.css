@@ -173,6 +173,12 @@ a:hover {
 .done{
 	background-color: rgba(37, 187, 37, 0.35);
 }
+.right{
+	float: right;
+}
+.left{
+	float: left;
+}
 #ajax-spinner {
     position:fixed;
     left: 50%;

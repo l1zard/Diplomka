@@ -36,4 +36,8 @@ $(function() {
 
 	});
 
+	$('.datepicker').datetimepicker({
+		locale: 'cs'
+	});
+
 })

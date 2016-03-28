@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Hostitel:                     127.0.0.1
--- Verze serveru:                5.6.24 - MySQL Community Server (GPL)
+-- Verze serveru:                10.1.10-MariaDB - mariadb.org binary distribution
 -- OS serveru:                   Win32
 -- HeidiSQL Verze:               9.3.0.4984
 -- --------------------------------------------------------
@@ -180,14 +180,14 @@ CREATE TABLE IF NOT EXISTS `prilezitost` (
   CONSTRAINT `Relationship14` FOREIGN KEY (`id_zapas`) REFERENCES `zapas` (`id_zapas`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `Relationship19` FOREIGN KEY (`id_typ_prilezitosti`) REFERENCES `typ_prilezitost` (`id_typ_prilezitost`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `Relationship20` FOREIGN KEY (`id_stav_prilezitost`) REFERENCES `stav_prilezitost` (`id_stav_prilezitost`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.prilezitost: ~3 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.prilezitost: ~2 rows (přibližně)
 /*!40000 ALTER TABLE `prilezitost` DISABLE KEYS */;
 INSERT INTO `prilezitost` (`id_prilezitost`, `kurz`, `id_zapas`, `id_typ_prilezitosti`, `id_stav_prilezitost`) VALUES
-	(16, 3.00, 3, 2, 1),
-	(17, 2.00, 3, 1, 1),
-	(20, 2.00, 3, 3, 1);
+	(24, 2.00, 6, 2, 1),
+	(25, 2.30, 6, 3, 1),
+	(26, 3.00, 6, 1, 1);
 /*!40000 ALTER TABLE `prilezitost` ENABLE KEYS */;
 
 
@@ -233,7 +233,7 @@ CREATE TABLE IF NOT EXISTS `sezona` (
   PRIMARY KEY (`id_sezony`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.sezona: ~1 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.sezona: ~0 rows (přibližně)
 /*!40000 ALTER TABLE `sezona` DISABLE KEYS */;
 INSERT INTO `sezona` (`id_sezony`, `sezona`, `aktivni`) VALUES
 	(1, '2015/2016', 1);
@@ -259,14 +259,15 @@ CREATE TABLE IF NOT EXISTS `stav_prilezitost` (
   `id_stav_prilezitost` int(11) NOT NULL AUTO_INCREMENT,
   `stav` varchar(50) COLLATE utf8_czech_ci NOT NULL,
   PRIMARY KEY (`id_stav_prilezitost`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.stav_prilezitost: ~3 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.stav_prilezitost: ~4 rows (přibližně)
 /*!40000 ALTER TABLE `stav_prilezitost` DISABLE KEYS */;
 INSERT INTO `stav_prilezitost` (`id_stav_prilezitost`, `stav`) VALUES
 	(1, 'nevyhodnocena'),
-	(2, 'vyhodnocena'),
-	(3, 'zrušena');
+	(2, 'vyhra'),
+	(3, 'prohra'),
+	(4, 'zrušena');
 /*!40000 ALTER TABLE `stav_prilezitost` ENABLE KEYS */;
 
 
@@ -293,9 +294,9 @@ CREATE TABLE IF NOT EXISTS `tabulka` (
 -- Exportování dat pro tabulku sazkovka.tabulka: ~4 rows (přibližně)
 /*!40000 ALTER TABLE `tabulka` DISABLE KEYS */;
 INSERT INTO `tabulka` (`id_klub`, `id_liga`, `id_sezony`, `vyhry`, `remizy`, `prohry`, `vstrelene_goly`, `obdrzene_goly`, `pocet_bodu`) VALUES
-	(1, 1, 1, 0, 0, 0, 0, 0, 0),
+	(1, 1, 1, 0, 1, 0, 2, 2, 1),
 	(1, 2, 1, 0, 0, 0, 0, 0, 0),
-	(2, 1, 1, 0, 0, 0, 0, 0, 0),
+	(2, 1, 1, 0, 1, 0, 2, 2, 1),
 	(2, 2, 1, 0, 0, 0, 0, 0, 0);
 /*!40000 ALTER TABLE `tabulka` ENABLE KEYS */;
 
@@ -328,7 +329,7 @@ CREATE TABLE IF NOT EXISTS `typ_prilezitost` (
   PRIMARY KEY (`id_typ_prilezitost`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.typ_prilezitost: ~2 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.typ_prilezitost: ~3 rows (přibližně)
 /*!40000 ALTER TABLE `typ_prilezitost` DISABLE KEYS */;
 INSERT INTO `typ_prilezitost` (`id_typ_prilezitost`, `typ`) VALUES
 	(1, 'remiza'),
@@ -358,7 +359,7 @@ CREATE TABLE IF NOT EXISTS `uzivatel` (
   CONSTRAINT `Relationship8` FOREIGN KEY (`id_role`) REFERENCES `role` (`id_role`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.uzivatel: ~3 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.uzivatel: ~4 rows (přibližně)
 /*!40000 ALTER TABLE `uzivatel` DISABLE KEYS */;
 INSERT INTO `uzivatel` (`id_uzivatel`, `uzivatelske_jmeno`, `heslo`, `email`, `datum_narozeni`, `zustatek`, `jmeno`, `prijmeni`, `telefon`, `datum_registrace`, `id_role`) VALUES
 	(1, 'superadmin', '955db0b81ef1989b4a4dfeae8061a9a6', 'superadmin@4win.cz', '0000-00-00', 0, 'Michal', 'Malý', '737474245', '0000-00-00', 1),
@@ -378,19 +379,21 @@ CREATE TABLE IF NOT EXISTS `zapas` (
   `Informace` text COLLATE utf8_czech_ci,
   `id_hoste` int(11) NOT NULL,
   `id_klub` int(11) NOT NULL,
+  `id_liga` int(11) NOT NULL DEFAULT '1',
   `zobrazit` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id_zapas`),
   KEY `IX_Relationship17` (`id_hoste`),
   KEY `IX_Relationship18` (`id_klub`),
+  KEY `id_liga` (`id_liga`),
+  CONSTRAINT `FK_zapas_liga` FOREIGN KEY (`id_liga`) REFERENCES `liga` (`id_liga`),
   CONSTRAINT `Relationship17` FOREIGN KEY (`id_hoste`) REFERENCES `klub` (`id_klub`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `Relationship18` FOREIGN KEY (`id_klub`) REFERENCES `klub` (`id_klub`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 -- Exportování dat pro tabulku sazkovka.zapas: ~2 rows (přibližně)
 /*!40000 ALTER TABLE `zapas` DISABLE KEYS */;
-INSERT INTO `zapas` (`id_zapas`, `datum_zapasu`, `kolo`, `skore_domaci`, `skore_hoste`, `Informace`, `id_hoste`, `id_klub`, `zobrazit`) VALUES
-	(2, '2016-03-06 14:00:00', 1, 3, 1, NULL, 1, 2, 0),
-	(3, '2016-03-27 17:10:00', 2, NULL, NULL, NULL, 2, 1, 1);
+INSERT INTO `zapas` (`id_zapas`, `datum_zapasu`, `kolo`, `skore_domaci`, `skore_hoste`, `Informace`, `id_hoste`, `id_klub`, `id_liga`, `zobrazit`) VALUES
+	(6, '2016-03-30 13:00:00', 6, 2, 2, '', 2, 1, 1, 1);
 /*!40000 ALTER TABLE `zapas` ENABLE KEYS */;
 
 

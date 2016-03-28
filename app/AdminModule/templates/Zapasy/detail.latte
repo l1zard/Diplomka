@@ -88,7 +88,7 @@
 										{/if}
 									{/ifset}
 								{/snippet}
-								<input type="checkbox" data-toggle="toggle" id="checkBoxShowMatch" data-on="Zobrazeno" data-off="Nezobrazeno" data-onstyle="success" data-offstyle="danger">
+								<input type="checkbox" {ifset $isShowed}{if $isShowed == true}disabled checked{/if}{/ifset} data-toggle="toggle" id="checkBoxShowMatch" data-on="Zobrazeno" data-off="Nezobrazeno" data-onstyle="success" data-offstyle="danger">
 							</div>
 						</div>
 					</div>
@@ -98,7 +98,8 @@
 								<h3 class="panel-title">Vyplnit výsledek zápasu</h3>
 							</div>
 							<div class="panel-body">
-								<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Small Modal</button>
+								<button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Zadat výsledek</button>
+								<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">Anulovat zápas</button>
 							</div>
 						</div>
 					</div>

@@ -34,7 +34,27 @@ class MatchModel extends Nette\Object {
 	}
 
 	public function addResultByMatchID($id, $domaci, $hoste) {
+		$row = $this->database->query("SELECT id_liga, id_klub, id_hoste FROM ZAPAS WHERE id_zapas = ?", $id)->fetch();
+		$sezona = $this->database->query("SELECT id_sezony FROM sezona WHERE aktivni = 1")->fetch();
 		$this->database->query("UPDATE ZAPAS SET skore_domaci = ?, skore_hoste = ? WHERE id_zapas = ?", $domaci, $hoste, $id);
+		if($domaci > $hoste){
+			$this->database->query("UPDATE tabulka SET vyhry = vyhry + 1, vstrelene_goly = ?, obdrzene_goly = ?, pocet_bodu = pocet_bodu + 3 WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
+				$domaci, $hoste, $row->id_klub, $row->id_liga, $sezona->id_sezony);
+			$this->database->query("UPDATE tabulka SET prohry = prohry + 1, vstrelene_goly = ?, obdrzene_goly = ? WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
+				$hoste, $domaci, $row->id_hoste, $row->id_liga, $sezona->id_sezony);
+		}
+		else if($domaci < $hoste){
+			$this->database->query("UPDATE tabulka SET prohry = prohry + 1, vstrelene_goly = ?, obdrzene_goly = ? WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
+				$domaci, $hoste, $row->id_klub, $row->id_liga, $sezona->id_sezony);
+			$this->database->query("UPDATE tabulka SET vyhry = vyhry + 1, vstrelene_goly = ?, obdrzene_goly = ?, pocet_bodu = pocet_bodu + 3 WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
+				$hoste, $domaci, $row->id_hoste, $row->id_liga, $sezona->id_sezony);
+		}
+		else if($domaci == $hoste){
+			$this->database->query("UPDATE tabulka SET remizy = remizy + 1, vstrelene_goly = ?, obdrzene_goly = ?, pocet_bodu = pocet_bodu + 1 WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
+				$domaci, $hoste, $row->id_klub, $row->id_liga, $sezona->id_sezony);
+			$this->database->query("UPDATE tabulka SET remizy = remizy + 1, vstrelene_goly = ?, obdrzene_goly = ?, pocet_bodu = pocet_bodu + 1 WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
+				$hoste, $domaci, $row->id_hoste, $row->id_liga, $sezona->id_sezony);
+		}
 	}
 
 	public function getMatchStatus($idMatch) {
@@ -95,12 +115,18 @@ class MatchModel extends Nette\Object {
 	
 	public function getMatchShow($idZapas){
 		$row = $this->database->query("SELECT zobrazit FROM zapas WHERE id_zapas = ?", $idZapas)->fetch();
-		if($row->zobrazit = 1){
+		if($row->zobrazit == 1){
 			return true;
 		}
 		else{
 			return false;
 		}
+	}
+	
+	public function addMatch($idLiga, $idDomaci, $idHoste, $datum, $kolo, $informace=null){
+		$date = new Nette\Utils\DateTime($datum);
+		$this->database->query("INSERT INTO zapas(id_liga, id_klub, id_hoste, datum_zapasu, kolo, informace)
+		VALUES(?, ?, ?, ?, ?, ?)", $idLiga, $idDomaci, $idHoste, $date, $kolo, $informace);
 	}
 
 }
