@@ -35,10 +35,20 @@
                         <img src="{$basePath}/images/logo_inverse.png" />
                     </div>
                     <div class="user">
-                        {form loginUser}
-                            {input username}
-                            {input password}
-                        {/form}
+                        {if !$user->loggedIn}
+                            <div class="login">
+                                {form loginUser}
+                                    {input username}
+                                    {input password}
+                                    {input send}
+                                {/form}
+                            </div>
+                        {else}
+                            <div class="logged">
+                                <a n:href="userLogout!">Odhlásit</a>
+                            </div>
+                        {/if}
+
                     </div>
 			    </div>
             </div>

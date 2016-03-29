@@ -64,6 +64,7 @@ form .error {
 
 .header .down-header .logo {
     padding: 10px;
+    float: left;
 }
 
 .header .down-header .logo img {
@@ -101,4 +102,28 @@ form .error {
     display: inline;
 
     margin-right: 20px;
+}
+
+.header .down-header .user{
+    float: right;
+}
+.header .down-header .login{
+    padding-top: 15px;
+}
+.textinput{
+    border: 1px solid rgba(0, 0, 0, 0.37);
+    box-sizing: border-box;
+    padding: 3px;
+}
+
+.button-blue{
+    background-color: #1AADFF;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 3px;
+    font-weight: 600;
+    border: 1px solid rgba(6, 6, 6, 0.31);
 }
