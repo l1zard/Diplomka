@@ -1,129 +1,328 @@
-body {
-    font-size: 15px;
-    line-height: 1.6;
-    color: #333;
-    background: white;
+body, html {
+	font-size: 15px;
+	line-height: 1.6;
+	color: #333333;
+	background: rgba(150, 150, 150, 0.05);
+	height: 100%;
 }
 
 h1 {
-    color: #3484D2;
+	color: #3484D2;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	color: white;
+	text-decoration: none;
 }
 
 #ajax-spinner {
-    margin: 15px 0 0 15px;
-    padding: 13px;
-    background: white url('../images/spinner.gif') no-repeat 50% 50%;
-    font-size: 0;
-    z-index: 123456;
-    display: none;
+	margin: 15px 0 0 15px;
+	padding: 13px;
+	background: white url('../images/spinner.gif') no-repeat 50% 50%;
+	font-size: 0;
+	z-index: 123456;
+	display: none;
 }
 
 div.flash {
-    color: black;
-    background: #FFF9D7;
-    border: 1px solid #E2C822;
-    padding: 1em;
-    margin: 1em 0;
+	color: black;
+	background: #FFF9D7;
+	border: 1px solid #E2C822;
+	padding: 1em;
+	margin: 1em 0;
 }
 
 a[href^="#error:"] {
-    background: red;
-    color: white;
+	background: red;
+	color: white;
 }
 
 form th, form td {
-    vertical-align: top;
-    font-weight: normal;
+	vertical-align: top;
+	font-weight: normal;
 }
 
 form th {
-    text-align: right;
+	text-align: right;
 }
 
 form .required label {
-    font-weight: bold;
+	font-weight: bold;
 }
 
 form .error {
-    color: #D00;
-    font-weight: bold;
+	color: #DD0000;
+	font-weight: bold;
 }
 
 .header { /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */ /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    background: #283048; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #283048, #859398); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #283048, #859398); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #283048; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #283048, #859398); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #283048, #859398); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .header .top-header {
-    text-align: right;
-    font-size: 0.8em;
-    color: white;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	text-align: right;
+	font-size: 0.8em;
+	color: white;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .header .down-header .logo {
-    padding: 10px;
-    float: left;
+	padding: 10px;
+	float: left;
 }
 
 .header .down-header .logo img {
-    width: 40px;
+	width: 40px;
 }
 
 .menu {
-
-    background-color: rgba(25, 130, 46, 0.6);
-
-    background: #757F9A; /* fallback for old browsers */
-
-    background: -webkit-linear-gradient(to left, #757F9A, #D7DDE8); /* Chrome 10-25, Safari 5.1-6 */
-
-    background: linear-gradient(to left, #757F9A, #D7DDE8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-color: rgba(25, 130, 46, 0.6);
+	background: #757F9A; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #757F9A, #D7DDE8); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #757F9A, #D7DDE8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .menu ul {
-
-    list-style-type: none;
-
-    padding: 0;
-
-    margin: 0;
-
-    color: white;
-
-    padding-top: 5px;
-
-    padding-bottom: 5px;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	color: white;
 }
 
 .menu ul li {
-
-    display: inline;
-
-    margin-right: 20px;
+	display: inline-block;
+	/* margin-right: 20px; */
+	padding: 7px 14px 7px 14px;
+	box-sizing: border-box;
 }
 
-.header .down-header .user{
-    float: right;
-}
-.header .down-header .login{
-    padding-top: 15px;
-}
-.textinput{
-    border: 1px solid rgba(0, 0, 0, 0.37);
-    box-sizing: border-box;
-    padding: 3px;
+.menu ul li:hover {
+	background-color: #1AADFF;
+	cursor: pointer;
 }
 
-.button-blue{
-    background-color: #1AADFF;
-    color: white;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    border-radius: 3px;
-    font-weight: 600;
-    border: 1px solid rgba(6, 6, 6, 0.31);
+.header .down-header .user {
+	float: right;
+}
+
+.header .down-header .login {
+	padding-top: 15px;
+}
+
+.header .down-header .logged {
+	padding: 19px 50px 19px 19px;
+	position: relative;
+}
+
+.header .down-header .logged .nickname {
+	margin-right: 10px;
+}
+
+.header .down-header .logged span {
+	color: white;
+}
+
+.header .down-header .logged:hover {
+	border: 1px solid rgba(0, 0, 0, 0.16);
+	background-color: #454F61;
+	cursor: pointer;
+}
+
+.header .down-header .logged .dropdown {
+	position: absolute;
+	margin-left: -19px;
+	background-color: #454F61;
+	border-left: 1px solid rgba(0, 0, 0, 0.16);
+	border-right: 1px solid rgba(0, 0, 0, 0.16);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+	width: 100%;
+	margin-top: 19px;
+	color: white;
+	display: none;
+	z-index: 99;
+}
+
+.header .down-header .logged .dropdown ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.header .down-header .logged .dropdown ul li {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 10px;
+}
+
+.header .down-header .logged .dropdown ul li:hover {
+	background-color: #1AADFF;
+}
+
+.content {
+	margin-top: 20px;
+	height: auto;
+}
+
+.content .left-block {
+	float: left;
+	width: 210px;
+	position: relative;
+}
+
+.content .left-block ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	border-left: 1px solid rgba(0, 0, 0, 0.32);
+	border-right: 1px solid rgba(0, 0, 0, 0.32);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.32);
+	background-color: rgba(94, 106, 119, 0.54);
+	color: white;
+}
+
+.content .left-block ul li {
+	padding-left: 10px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-top: 1px solid rgba(0, 0, 0, 0.10);
+}
+
+.content .left-block ul li:hover {
+	background-color: #1AADFF;
+}
+
+.content .main-block-full {
+	margin-left: 230px;
+}
+
+.content .main-block {
+	margin-left: 230px;
+	margin-right: 280px;
+	position: relative;
+}
+
+.content .right-block {
+	float: right;
+	width: 260px;
+	position: relative;
+}
+
+.content .right-block ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	border-left: 1px solid rgba(0, 0, 0, 0.32);
+	border-right: 1px solid rgba(0, 0, 0, 0.32);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.32);
+	background-color: rgba(94, 106, 119, 0.54);
+	color: white;
+}
+
+.content .right-block ul li {
+	font-size: 0.8em;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	background-color: #3DADEC;
+	margin-bottom: 2px;
+	height: 43px;
+	padding-left: 10px;
+}
+
+.content .right-block ul li .match {
+	display: block;
+	/* float: left; */
+}
+
+.content .right-block ul li .kurz {
+	/* display: block; */
+	float: right;
+	margin-right: 10px;
+	margin-top: -10px;
+}
+
+.content .right-block ul li:last-child {
+	margin: 0;
+}
+
+.block-header {
+	background-color: #5E6A77;
+	color: white;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+}
+
+.content-table {
+	width: 100%;
+}
+
+.content-table .table-header {
+	background-color: rgba(94, 106, 119, 0.86);
+	color: white;
+}
+
+.content-table th {
+	padding: 5px 15px 5px 15px;
+}
+
+.content-table td {
+	padding: 5px 15px 5px 15px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+	font-size: 0.9em;
+}
+
+.content-table tr {
+	background-color: #A8AEB5;
+	color: white;
+}
+
+.content-table .kurz-prilezitost {
+	padding-left: 6px;
+	padding-right: 6px;
+	width: 52px;
+}
+
+/* buttons and inputs */
+.textinput {
+	border: 1px solid rgba(0, 0, 0, 0.37);
+	box-sizing: border-box;
+	padding: 3px;
+	color: black;
+}
+
+.button-blue {
+	background-color: #1AADFF;
+	color: white;
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	border-radius: 3px;
+	font-weight: 600;
+	border: 1px solid rgba(6, 6, 6, 0.31);
+}
+
+.prilezitost {
+	border: 1px solid rgba(64, 64, 64, 0.15);
+	border-radius: 2px;
+	width: 52px;
+	height: 27px;
+	box-sizing: border-box;
+	cursor: pointer;
+	padding: 5px 0 4px 0;
+	background-color: rgba(26, 173, 255, 0.75);
+	font-size: 13px;
+	box-shadow: 0 1px 2px rgba(80, 80, 80, 0.42);
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	color: #FFFFFF;
+	font-weight: 400;
 }

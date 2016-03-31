@@ -26,4 +26,5 @@ services:
 	- App\Model\KlubModel
 	- App\Model\LeagueModel
 	- App\Model\MatchModel
+	- App\Model\PaymentModel
 	router: App\RouterFactory::createRouter

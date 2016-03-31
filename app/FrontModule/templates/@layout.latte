@@ -12,60 +12,75 @@
 	<link rel="stylesheet" href="{$basePath}/css/bootstrap.min.css">
 	<link rel="stylesheet" href="{$basePath}/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" href="{$basePath}/css/style.css">
+	<link rel="stylesheet" href="{$basePath}/css/font-awesome.min.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 	<meta name="viewport" content="width=device-width">
 
 	{block scripts}
-		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="{$basePath}/js/jquery-1.11.3.js"></script>
 		<script src="//nette.github.io/resources/js/netteForms.min.js"></script>
+		<script src="{$basePath}/js/nette.ajax.js"></script>
 		<script src="{$basePath}/js/bootstrap.min.js"></script>
+		<script src="{$basePath}/js/front.js"></script>
 	{/block}
 	{block head}{/block}
 </head>
 
 <body>
-		<div class="header">
-            <div class="container">
-			    <div class="top-header">
-                    <span>Registrace</span>
-                    <span>Zapomenuté heslo</span>
-			</div>
-			    <div class="down-header">
-                    <div class="logo">
-                        <img src="{$basePath}/images/logo_inverse.png" />
-                    </div>
-                    <div class="user">
-                        {if !$user->loggedIn}
-                            <div class="login">
-                                {form loginUser}
-                                    {input username}
-                                    {input password}
-                                    {input send}
-                                {/form}
-                            </div>
-                        {else}
-                            <div class="logged">
-                                <a n:href="userLogout!">Odhlásit</a>
-                            </div>
-                        {/if}
-
-                    </div>
-			    </div>
-            </div>
+<div class="header">
+	<div class="container">
+		<div class="top-header">
+			<span>Registrace</span>
+			<span>Zapomenuté heslo</span>
 		</div>
-        <div class="menu">
-            <div class="container">
-                <ul>
-                    <li>Kurzová nabídka</li>
-                    <li>Novinky</li>
-                    <li>Výsledky</li>
-                    <li>Fórum</li>
-                    <li>Podpora</li>
-                </ul>
-            </div>
-        </div>
-
-	{include content}
+		<div class="down-header">
+			<div class="logo">
+				<img src="{$basePath}/images/logo_inverse.png" />
+			</div>
+			<div class="user">
+				{if !$user->loggedIn}
+					<div class="login">
+						{form loginUser}
+							{input username}
+							{input password}
+							{input send}
+						{/form}
+					</div>
+				{else}
+					<div class="logged">
+						<span class="nickname"><i class="fa fa-fw fa-user" style="color: #1AADFF;"></i> {$myUser->uzivatelske_jmeno}</span>
+						<span><i class="fa fa-fw fa-money" style="color: #55D455; margin-right: 5px"></i>{$myUser->zustatek} Kč</span>
+						<div class="dropdown">
+							<ul>
+								<a n:href="User:"><li>Můj účet</li></a>
+								<a n:href="User:payment"><li>Vložit/Vybrat</li></a>
+								<li>Tikety</li>
+								<li>Transakce</li>
+								<li>Odhlásit</li>
+							</ul>
+						</div>
+					</div>
+				{/if}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="menu">
+	<div class="container">
+		<ul>
+			<a n:href="Homepage:"><li>Kurzová nabídka</li></a>
+			<li>Novinky</li>
+			<li>Výsledky</li>
+			<li>Fórum</li>
+			<li>Podpora</li>
+		</ul>
+	</div>
+</div>
+<div class="content">
+	<div class="container">
+		{include content}
+	</div>
+</div>
 
 
 </body>

@@ -1,0 +1,52 @@
+{block content}
+	<div n:foreach="$flashes as $flash" n:class="alert, $flash->type">{$flash->message}</div>
+	<div class="left-block">
+		<div class="block-header">
+			Účet
+		</div>
+		<ul>
+			<a n:href="User:payment">
+				<li>Vložit/Vybrat</li>
+			</a>
+			<li>Tikety</li>
+			<li>Transakce</li>
+			<li>Zprávy</li>
+		</ul>
+	</div>
+	<div class="main-block-full">
+		<div class="block-header">
+			Vklady
+		</div>
+		<table class="content-table">
+			<tbody>
+			<tr class="table-header">
+				<th>Typ platby</th>
+				<th>Limit</th>
+				<th>Doba zpracování</th>
+				<th>Vklad</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td>Bankovní účet</td>
+				<td>Bez omezení</td>
+				<td>1-3 dny</td>
+				<td><input type="text" /></td>
+				<td>
+					<button class="button-blue">Vložit</button>
+				</td>
+			</tr>
+			<tr>
+				<td>Platební karta</td>
+				<td>100 - 999 999</td>
+				<td>okamžitě</td>
+				{form creditCardForm}
+					<td>{input vklad}</td>
+					<td>
+						{input send}
+					</td>
+				{/form}
+			</tr>
+			</tbody>
+		</table>
+	</div>
+{/block}

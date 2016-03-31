@@ -1,5 +1,52 @@
-{* This is the welcome page, you can delete it *}
-
 {block content}
+	<div class="left-block">
+		<div class="block-header">
+			<i class="fa fa-fw fa-futbol-o"></i> Fotbal
+		</div>
+		<ul>
+			<li><img src="{$basePath}/images/loga_lig/synot_liga.png" width="20px" />Synot Liga</li>
+		</ul>
+	</div>
+	<div class="right-block">
+		<div class="block-header">
+			Tiket
+		</div>
+		<ul>
+			{snippet ticketSnippet}
+				{ifset $tiket['polozka']}
+					{foreach $tiket['polozka'] as $item}
+						<li>
+							<span class="match">{$item['zapas']}</span> 
+							<span class="kurz">{$item['kurz']|number:2} <a n:href="deleteMatchFromTicket! $item['idMatch']" class="ajax"><i class="fa fa-fw fa-remove"></i></a></span>
+							<span class="typ-prilezitosti">{$item['prilezitost']}</span>
+						</li>
+					{/foreach}
+				{/ifset}
+			{/snippet}
+		</ul>
+	</div>
+	<div class="main-block">
+		<div class="block-header">
+			<img src="{$basePath}/images/loga_lig/synot_liga.png" width="20px" /> Synot Liga
+		</div>
+		<table class="content-table">
+			<tbody>
+			{foreach $matches as $match}
+				<tr>
+					<td>{$match->klubdomaci} - {$match->klubhoste}<span style="display: block; font-size: 0.8em;">{$match->datum_zapasu|date: '%d.%m %H:%M'}</span></td>
+					{foreach $match->prilezitosti as $prilezitost}
+						<td class="kurz-prilezitost"><a n:href="addToTicket! $match->id_zapas, $prilezitost->id_prilezitost" class="prilezitost ajax">{$prilezitost->kurz|number:2}</a></td>
+					{/foreach}
+				</tr>
+			{/foreach}
+			</tbody>
+		</table>
+	</div>
+
+
+
+
+
+
 
 {/block}
