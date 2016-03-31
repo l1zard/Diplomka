@@ -11,19 +11,42 @@
 		<div class="block-header">
 			Tiket
 		</div>
-		<ul>
-			{snippet ticketSnippet}
-				{ifset $tiket['polozka']}
+
+		{snippet ticketSnippet}
+			{ifset $tiket['polozka']}
+				<ul>
 					{foreach $tiket['polozka'] as $item}
 						<li>
-							<span class="match">{$item['zapas']}</span> 
-							<span class="kurz">{$item['kurz']|number:2} <a n:href="deleteMatchFromTicket! $item['idMatch']" class="ajax"><i class="fa fa-fw fa-remove"></i></a></span>
+							<span class="match">{$item['zapas']}</span>
+							<span class="kurz">{$item['kurz']|number:2} <a n:href="deleteMatchFromTicket! $item['idMatch']" class="ajax"><i class="fa fa-fw fa-remove"></i></a>
+							</span>
 							<span class="typ-prilezitosti">{$item['prilezitost']}</span>
 						</li>
 					{/foreach}
-				{/ifset}
-			{/snippet}
-		</ul>
+				</ul>
+				<div class="bet">
+					<span class="tiket-block">Celkový kurz</span>
+					<span class="tiket-block">{$tiket['celkovyKurz']}</span>
+					<div class="clear"></div>
+					<span class="tiket-block">Počet zápasů</span>
+					<span class="tiket-block">2</span>
+					<div class="clear"></div>
+					<span class="tiket-block">Vsadit částku</span>
+					<span class="tiket-block"><input type="text" /></span>
+					<div class="clear"></div>
+				</div>
+				<div class="bet">
+					<span class="tiket-block">Vsazená částka</span>
+					<span class="tiket-block">0,00 Kč</span>
+					<div class="clear"></div>
+					<span class="tiket-block">Potencionální výhra</span>
+					<span class="tiket-block">0,00 Kč</span>
+					<div class="clear"></div>
+					<a href="" class="button-blue accept" >Vsadit</a>
+				</div>
+			{/ifset}
+		{/snippet}
+
 	</div>
 	<div class="main-block">
 		<div class="block-header">
@@ -31,11 +54,20 @@
 		</div>
 		<table class="content-table">
 			<tbody>
+			<tr class="table-header">
+				<th>Zápas</th>
+				<th class="typ-prilezitost">1</th>
+				<th class="typ-prilezitost">0</th>
+				<th class="typ-prilezitost">2</th>
+			</tr>
 			{foreach $matches as $match}
 				<tr>
-					<td>{$match->klubdomaci} - {$match->klubhoste}<span style="display: block; font-size: 0.8em;">{$match->datum_zapasu|date: '%d.%m %H:%M'}</span></td>
+					<td>{$match->klubdomaci} - {$match->klubhoste}
+						<span style="display: block; font-size: 0.8em;">{$match->datum_zapasu|date: '%d.%m %H:%M'}</span>
+					</td>
 					{foreach $match->prilezitosti as $prilezitost}
-						<td class="kurz-prilezitost"><a n:href="addToTicket! $match->id_zapas, $prilezitost->id_prilezitost" class="prilezitost ajax">{$prilezitost->kurz|number:2}</a></td>
+						<td class="kurz-prilezitost">
+							<a n:href="addToTicket! $match->id_zapas, $prilezitost->id_prilezitost" class="prilezitost ajax">{$prilezitost->kurz|number:2}</a></td>
 					{/foreach}
 				</tr>
 			{/foreach}
