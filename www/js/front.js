@@ -13,5 +13,10 @@ $(function(){
 	});
 	$.nette.init();
 	
-
+	$('#frm-betTicket-vklad').on('input', function(){
+		var money = parseFloat($(this).val());
+		var winMoney = parseFloat(money * $('#celkovyKurz').html());
+		$('#vsazena-castka').html(money.toFixed(2) + ' Kč');
+		$('#potenc-vyhra').html(winMoney.toFixed(2) + ' Kč');
+	});
 });

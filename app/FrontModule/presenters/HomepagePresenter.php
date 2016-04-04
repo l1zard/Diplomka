@@ -5,6 +5,7 @@ namespace App\FrontModule\Presenters;
 use Nette;
 use App\Model;
 use App\Model\MatchModel;
+use Nette\Application\UI;
 
 class HomepagePresenter extends BasePresenter {
 
@@ -51,7 +52,32 @@ class HomepagePresenter extends BasePresenter {
 
 	public function handleDeleteMatchFromTicket($idMatch) {
 		$sekce = $this->session->getSection('tiket');
-		unset($sekce->polozka[$idMatch]);
+		if(count($sekce->polozka) == 1) {
+			unset($sekce->polozka[$idMatch]);
+			$sekce->setExpiration(-1);
+			$this->session->close();
+			$this->session->start();
+		} else {
+			unset($sekce->polozka[$idMatch]);
+		}
+
 		$this->redrawControl('ticketSnippet');
+	}
+
+	protected function createComponentBetTicket() {
+		$form = new UI\Form();
+		$form->addText("vklad")
+			->setAttribute("class", "textinput betbutton")
+			->addRule(UI\Form::INTEGER, 'Hodnota musí být celočíselná!');
+		$form->addSubmit("send", 'Vsadit')
+			->setAttribute('class', 'button-blue accept');
+		$form->onSuccess[] = array($this, 'betTicketSucceed');
+
+		return $form;
+	}
+
+	public function betTicketSucceed(UI\Form $form) {
+		$values = $form->getValues();
+
 	}
 }

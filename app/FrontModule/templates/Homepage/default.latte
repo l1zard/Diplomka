@@ -24,25 +24,32 @@
 						</li>
 					{/foreach}
 				</ul>
+				{form betTicket}
 				<div class="bet">
 					<span class="tiket-block">Celkový kurz</span>
-					<span class="tiket-block">{$tiket['celkovyKurz']}</span>
+					<span id="celkovyKurz" class="tiket-block">{$tiket['celkovyKurz']}</span>
 					<div class="clear"></div>
 					<span class="tiket-block">Počet zápasů</span>
 					<span class="tiket-block">2</span>
 					<div class="clear"></div>
 					<span class="tiket-block">Vsadit částku</span>
-					<span class="tiket-block"><input type="text" /></span>
+					<span class="tiket-block">{input vklad}</span>
 					<div class="clear"></div>
 				</div>
 				<div class="bet">
 					<span class="tiket-block">Vsazená částka</span>
-					<span class="tiket-block">0,00 Kč</span>
+					<span id="vsazena-castka" class="tiket-block">0,00 Kč</span>
 					<div class="clear"></div>
 					<span class="tiket-block">Potencionální výhra</span>
-					<span class="tiket-block">0,00 Kč</span>
+					<span id="potenc-vyhra" class="tiket-block">0,00 Kč</span>
 					<div class="clear"></div>
-					<a href="" class="button-blue accept" >Vsadit</a>
+					{input send}
+				</div>
+				{/form}
+			
+			{else}
+				<div class="bet">
+					<p class="noticket">K vytvoření tiketu zvolte nejdříve sázku (kurz)</p>
 				</div>
 			{/ifset}
 		{/snippet}
