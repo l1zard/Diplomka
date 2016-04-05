@@ -41,7 +41,7 @@ class HomepagePresenter extends BasePresenter {
 		);
 
 		$sekce->celkovyKurz = 1;
-
+		$sekce->pocetZapasu = count($sekce->polozka);
 		foreach($sekce->polozka as $item) {
 			$sekce->celkovyKurz = $sekce->celkovyKurz * $item['kurz'];
 
@@ -59,8 +59,17 @@ class HomepagePresenter extends BasePresenter {
 			$this->session->start();
 		} else {
 			unset($sekce->polozka[$idMatch]);
+			$sekce->pocetZapasu = $sekce->pocetZapasu - 1;
 		}
 
+		$this->redrawControl('ticketSnippet');
+	}
+
+	public function handleDeleteTicket() {
+		$sekce = $this->session->getSection('tiket');
+		$sekce->setExpiration(-1);
+		$this->session->close();
+		$this->session->start();
 		$this->redrawControl('ticketSnippet');
 	}
 
@@ -78,6 +87,9 @@ class HomepagePresenter extends BasePresenter {
 
 	public function betTicketSucceed(UI\Form $form) {
 		$values = $form->getValues();
+		if(!$this->user->isLoggedIn()){
+			$this->template->error
+		}
 
 	}
 }

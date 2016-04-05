@@ -10,6 +10,7 @@
 	<div class="right-block">
 		<div class="block-header">
 			Tiket
+			<a n:href="deleteTicket!" class="ajax"><span style="float: right; margin-right: 5px"><i class="fa fa-fw fa-trash-o"></i></span></a>
 		</div>
 
 		{snippet ticketSnippet}
@@ -30,7 +31,7 @@
 					<span id="celkovyKurz" class="tiket-block">{$tiket['celkovyKurz']}</span>
 					<div class="clear"></div>
 					<span class="tiket-block">Počet zápasů</span>
-					<span class="tiket-block">2</span>
+					<span class="tiket-block">{$tiket['pocetZapasu']}</span>
 					<div class="clear"></div>
 					<span class="tiket-block">Vsadit částku</span>
 					<span class="tiket-block">{input vklad}</span>
