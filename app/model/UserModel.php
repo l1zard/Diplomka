@@ -36,6 +36,10 @@ class UserModel extends Nette\Object {
 	public function getUserById($id){
 		return $row = $this->database->query("SELECT id_uzivatel, uzivatelske_jmeno, email, datum_narozeni, jmeno, prijmeni, telefon, zustatek FROM uzivatel WHERE id_uzivatel = ?", $id)->fetch();
 	}
+
+	public function getUserMoney($id){
+		return $rows = $this->database->query("SELECT zustatek FROM uzivatel WHERE id_uzivatel = ?", $id)->fetch();
+	}
 	
 	
 

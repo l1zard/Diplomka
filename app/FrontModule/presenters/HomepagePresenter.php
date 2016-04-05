@@ -75,6 +75,7 @@ class HomepagePresenter extends BasePresenter {
 
 	protected function createComponentBetTicket() {
 		$form = new UI\Form();
+		$form->getElementPrototype()->class('ajax');
 		$form->addText("vklad")
 			->setAttribute("class", "textinput betbutton")
 			->addRule(UI\Form::INTEGER, 'Hodnota musí být celočíselná!');
@@ -88,8 +89,20 @@ class HomepagePresenter extends BasePresenter {
 	public function betTicketSucceed(UI\Form $form) {
 		$values = $form->getValues();
 		if(!$this->user->isLoggedIn()){
-			$this->template->error
+			$this->template->betStatus = "Uživatel není přihlášen! Pro vsazení tiketu se přihlašte";
 		}
+		else{
+			$money = $this->userModel->getUserMoney($this->user->getId());
+			if($money->zustatek >= $values->vklad){
+
+			}
+			else{
+				$this->template->betStatus = "Nedostatečný zůstatek! Pro vsazení tiketu prosím vložte další finanční prostředky";
+			}
+
+		}
+
+		$this->redrawControl('ticketSnippet');
 
 	}
 }

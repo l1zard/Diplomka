@@ -27,6 +27,9 @@
 				</ul>
 				{form betTicket}
 				<div class="bet">
+					{ifset $betStatus}
+						<p class="betStatus">{$betStatus}</p>
+					{/ifset}
 					<span class="tiket-block">Celkový kurz</span>
 					<span id="celkovyKurz" class="tiket-block">{$tiket['celkovyKurz']}</span>
 					<div class="clear"></div>

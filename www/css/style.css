@@ -324,6 +324,16 @@ form .error {
     padding-top: 30px;
     padding-bottom: 30px;
 }
+#snippet--ticketSnippet .bet .betStatus{
+	color: red;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	text-align: center;
+	padding-bottom: 5px;
+	margin: 0;
+}
+
 .clear {
 	clear: both;
 }
