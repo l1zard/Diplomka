@@ -1,0 +1,40 @@
+{block content}
+	<div class="left-block">
+		<div class="block-header">
+			Účet
+		</div>
+		<ul>
+			<a n:href="User:payment">
+				<li>Vložit/Vybrat</li>
+			</a>
+			<a n:href="Tiket:">
+				<li>Tikety</li>
+			</a>
+			<li>Transakce</li>
+			<li>Zprávy</li>
+		</ul>
+	</div>
+	<div class="main-block-full">
+		<div class="block-header">
+			Účet
+		</div>
+		<table class="content-table">
+			<tbody>
+			<tr class="table-header">
+				<th>Datum</th>
+				<th>Vsazeno</th>
+				<th>Stav</th>
+			</tr>
+			{foreach $tikety as $tiket}
+				<tr class="tiket-row" data-href="/tiket/{$tiket->id_tiket}">
+					<td>{$tiket->datum_vytvoreni|date: '%d.%m.%Y'}
+						<span class="time">{$tiket->datum_vytvoreni|date: '%H:%M:%S'}</span>
+					</td>
+					<td>{$tiket->castka} Kč</td>
+					<td><i class="fa fa-{$tiket->stav}" style="color: #{$tiket->color}"></i></td>
+				</tr>
+			{/foreach}
+			</tbody>
+		</table>
+	</div>
+{/block}

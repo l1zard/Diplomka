@@ -19,7 +19,16 @@ $(function() {
 		$('#vsazena-castka').html(money.toFixed(2) + ' Kč');
 		$('#potenc-vyhra').html(winMoney.toFixed(2) + ' Kč');
 	});
+	
+	
 
+});
+
+$(document).ready(function($){
+	$('.tiket-row').click(function(){
+		window.open('http://' + window.location.host + $(this).data('href'), 'window name', 'width=550, height=640');
+		return false;
+	});
 });
 
 $(document).on('input', '#frm-betTicket-vklad', function() {

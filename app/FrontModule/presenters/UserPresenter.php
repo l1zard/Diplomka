@@ -13,11 +13,15 @@ use App\Model;
 use Nette\Application\UI;
 use App\Model\PaymentModel;
 use Nette\Http\Request;
+use App\Model\TicketModel;
 
 class UserPresenter extends BasePresenter {
 	
 	/** @var PaymentModel @inject */
     public $paymentModel;
+	
+	/** @var TicketModel @inject */
+    public $ticketModel;
 	
 	
 	public function startup() {
@@ -25,6 +29,10 @@ class UserPresenter extends BasePresenter {
 		if(!$this->user->isLoggedIn()) {
 			throw new Nette\Application\ForbiddenRequestException();
 		}
+	}
+	
+	public function renderTiket(){
+		$this->template->tikety = $this->ticketModel->getAllTicketByUser($this->user->getId());
 	}
 
 	public function actionPayment() {
@@ -62,6 +70,8 @@ class UserPresenter extends BasePresenter {
 		}
 		
 	}
+	
+		
 	
 
 

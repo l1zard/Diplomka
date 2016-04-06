@@ -334,6 +334,15 @@ form .error {
 	margin: 0;
 }
 
+span.time{
+	display: block;
+	font-size: 0.9em;
+}
+
+.tiket-row{
+	cursor: pointer;
+}
+
 .clear {
 	clear: both;
 }

@@ -5,12 +5,16 @@ namespace App\FrontModule\Presenters;
 use Nette;
 use App\Model;
 use App\Model\MatchModel;
+use App\Model\TicketModel;
 use Nette\Application\UI;
 
 class HomepagePresenter extends BasePresenter {
 
 	/** @var MatchModel @inject */
 	public $matchModel;
+
+	/** @var TicketModel @inject */
+	public $ticketModel;
 
 	public function renderDefault() {
 		$this->template->anyVariable = 'any value';
@@ -88,15 +92,18 @@ class HomepagePresenter extends BasePresenter {
 
 	public function betTicketSucceed(UI\Form $form) {
 		$values = $form->getValues();
-		if(!$this->user->isLoggedIn()){
+		if(!$this->user->isLoggedIn()) {
 			$this->template->betStatus = "Uživatel není přihlášen! Pro vsazení tiketu se přihlašte";
-		}
-		else{
+		} else {
 			$money = $this->userModel->getUserMoney($this->user->getId());
-			if($money->zustatek >= $values->vklad){
-
-			}
-			else{
+			if($money->zustatek >= $values->vklad) {
+				$sekce = $this->session->getSection('tiket');
+				$this->ticketModel->betTicket($this->user->getId(), $values->vklad, $sekce->polozka);
+				$this->userModel->minusUserMoney($this->user->getId(), $values->vklad);
+				$sekce->setExpiration(-1);
+				$this->session->close();
+				$this->session->start();
+			} else {
 				$this->template->betStatus = "Nedostatečný zůstatek! Pro vsazení tiketu prosím vložte další finanční prostředky";
 			}
 

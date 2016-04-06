@@ -20,6 +20,7 @@ class RouterFactory
         $admin[] = new Route('admin/<presenter>/<action>[/<id>]', 'Homepage:default');
         $router[] = $front = new RouteList('Front');
         $front[] = new Route('<presenter>/<action>[/<id>]', 'Homepage:default');
+        $front[] = new Route('/tiket/<id>', 'Tiket:id');
         return $router;
 	}
 
