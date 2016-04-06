@@ -140,7 +140,7 @@ class MatchModel extends Nette\Object {
 		return $zapasy;
 	}
 	
-	public function getTypPrilezitostString($idTyp){
+	public static function getTypPrilezitostString($idTyp){
 		if($idTyp == 1){
 			return "0 Remíza";
 		}

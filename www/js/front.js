@@ -19,6 +19,7 @@ $(function() {
 		$('#vsazena-castka').html(money.toFixed(2) + ' Kč');
 		$('#potenc-vyhra').html(winMoney.toFixed(2) + ' Kč');
 	});
+
 	
 	
 

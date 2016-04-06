@@ -9,16 +9,64 @@
 	<meta charset="utf-8">
 
 	<title>{ifset title}{include title|striptags} | {/ifset}Nette Sandbox</title>
+	<link rel="stylesheet" href="{$basePath}/css/font-awesome.min.css">
 	<link rel="shortcut icon" href="{$basePath}/favicon.ico">
 	<meta name="viewport" content="width=device-width">
 
 
 	{block head}{/block}
+	<style>
+		body{
+			background: #5E6A77;
+			font-family: Arial;
+		}
+		.match{
+			padding: 15px;
+			background-color: #A8AEB5;
+			color: white;
+		}
+		.match .zapas{
+			width: 35%;
+			float: left;
+		}
+		.match .zapas .klubs{
+			display: block;
+		}
+		.match .zapas .date{
+			font-size: 0.8em;
+		}
+		.match .prilezitost{
+			float: left;
+		}
+		.match .kurz{
+			float: left;
+		}
+		.match .result{
+			float: left;
+		}
+	</style>
 </head>
 
 <body>
-	
-{$id}
-
+<div class="block matches">
+		{foreach $zapasy as $zapas}
+			<div class="match">
+				<div class="zapas">
+					<span class="klubs">{$zapas->domaciklub}-{$zapas->hosteklub}</span>
+					<span class="date">{$zapas->datum|date: '%d.%m.%Y %H:%S:%M'}</span>
+				</div>
+				<div class="prilezitost">
+					<span>{$zapas->typ_prilezitost}</span>
+				</div>
+				<div class="kurz">
+					<span>{$zapas->kurz}</span>
+				</div>
+				<div class="result">
+					<span><i class="fa fa-{$zapas->stav}"></i></span>
+				</div>
+				<div style="clear: both"></div>
+			</div>
+		{/foreach}
+</div>
 </body>
 </html>
