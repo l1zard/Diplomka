@@ -19,11 +19,12 @@ class TiketPresenter extends BasePresenter {
 	public $ticketModel;
 
 	public function renderDefault($id){
-		$this->template->zapasy = $this->ticketModel->getTicketMatches($id);
+		//$this->template->zapasy = $this->ticketModel->getTicketMatches($id);
 	}
 
 	public function actionId($id){
 		$this->template->zapasy = $this->ticketModel->getTicketMatches($id);
+		$this->template->username = $this->ticketModel->getUserByTicketID($id);
 	}
 
 }

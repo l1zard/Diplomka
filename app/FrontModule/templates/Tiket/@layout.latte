@@ -16,57 +16,138 @@
 
 	{block head}{/block}
 	<style>
-		body{
+		body {
 			background: #5E6A77;
 			font-family: Arial;
 		}
-		.match{
+
+		.match {
 			padding: 15px;
 			background-color: #A8AEB5;
 			color: white;
+			margin-bottom: 1px;
 		}
-		.match .zapas{
+
+		.match .zapas {
 			width: 35%;
 			float: left;
 		}
-		.match .zapas .klubs{
+
+		.match .zapas .klubs {
 			display: block;
 		}
-		.match .zapas .date{
+
+		.match .zapas .date {
 			font-size: 0.8em;
+			padding-left: 25px;
 		}
-		.match .prilezitost{
+
+		.match .prilezitost {
 			float: left;
+			width: 20%;
+			text-align: right;
 		}
-		.match .kurz{
+
+		.match .kurz {
 			float: left;
+			width: 20%;
+			text-align: right;
 		}
-		.match .result{
+
+		.match .result {
 			float: left;
+			width: 20%;
+			text-align: right;
+		}
+
+		.match .textblock {
+			display: block;
+			margin-top: 7px;
+		}
+
+		.user {
+			padding: 15px;
+			background-color: #A8AEB5;
+			margin-bottom: 10px;
+		}
+
+		.user h2 {
+			margin: 0;
+			color: white;
+		}
+
+		.summary {
+			background-color: #A8AEB5;
+			padding: 15px;
+			margin-top: 9px;
+			height: 100%;
+			color: white;
+		}
+
+		.summary table {
+			width: 100%;
+		}
+
+		.summary table tr td:nth-child(2) {
+			text-align: right;
+			padding-right: 10px;
+		}
+
+		.summary table tr td {
+			padding-bottom: 5px;
+		}
+		.summary table .win td{
+			font-size: 1.2em;
+			font-weight: 600;
 		}
 	</style>
 </head>
 
 <body>
 <div class="block matches">
-		{foreach $zapasy as $zapas}
-			<div class="match">
-				<div class="zapas">
-					<span class="klubs">{$zapas->domaciklub}-{$zapas->hosteklub}</span>
-					<span class="date">{$zapas->datum|date: '%d.%m.%Y %H:%S:%M'}</span>
-				</div>
-				<div class="prilezitost">
-					<span>{$zapas->typ_prilezitost}</span>
-				</div>
-				<div class="kurz">
-					<span>{$zapas->kurz}</span>
-				</div>
-				<div class="result">
-					<span><i class="fa fa-{$zapas->stav}"></i></span>
-				</div>
-				<div style="clear: both"></div>
+	<div class="user">
+		<h2><i class="fa fa-ticket" style="padding-right: 10px;"></i>Tiket od uživatele {$username->uzivatelske_jmeno}</h2>
+	</div>
+	{foreach $zapasy as $zapas}
+		<div class="match">
+			<div class="zapas">
+				<span class="klubs"><i class="fa fa-fw fa-futbol-o" style="padding-right: 5px;"></i>{$zapas->domaciklub}-{$zapas->hosteklub}</span>
+				<span class="date">{$zapas->datum|date: '%d.%m.%Y %H:%S:%M'}</span>
 			</div>
-		{/foreach}
+			<div class="prilezitost">
+				<span class="textblock">{$zapas->typ_prilezitost}</span>
+			</div>
+			<div class="kurz">
+				<span class="textblock">{$zapas->kurz}</span>
+			</div>
+			<div class="result">
+				<span class="textblock"><i class="fa fa-{$zapas->stav}" style="color: #{$zapas->color}"></i></span>
+			</div>
+			<div style="clear: both"></div>
+		</div>
+	{/foreach}
+	<div class="summary">
+		<table>
+			<tbody>
+			<tr>
+				<td>Datum podání tiketu</td>
+				<td>15.3.2016 14:40:47</td>
+			</tr>
+			<tr>
+				<td>Celkový kurz</td>
+				<td>38.13</td>
+			</tr>
+			<tr>
+				<td>Vsazená částka</td>
+				<td>15.3.2016 14:40:47</td>
+			</tr>
+			<tr class="win">
+				<td>Výhra</td>
+				<td>0,00 Kč</td>
+			</tr>
+			</tbody>
+		</table>
+	</div>
 </div>
 </body>
 </html>

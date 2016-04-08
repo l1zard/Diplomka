@@ -82,4 +82,9 @@ class TicketModel extends Nette\Object {
 
 	}
 
+	public function getUserByTicketID($idTicket){
+		return $this->database->query("SELECT uzivatelske_jmeno FROM tiket
+		JOIN uzivatel ON tiket.id_uzivatel = uzivatel.id_uzivatel
+		WHERE id_tiket = ?", $idTicket)->fetch();
+	}
 }

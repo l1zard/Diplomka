@@ -44,5 +44,7 @@ class UserModel extends Nette\Object {
 	public function minusUserMoney($id, $minus){
 		$this->database->query("UPDATE uzivatel SET zustatek = zustatek - ? WHERE id_uzivatel = ?", $minus, $id);
 	}
+	
+	
 
 }
