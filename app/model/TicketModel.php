@@ -108,4 +108,6 @@ class TicketModel extends Nette\Object {
 		);
 		return Nette\Database\Row::from($array);
 	}
+
+
 }

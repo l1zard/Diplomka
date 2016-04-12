@@ -37,11 +37,17 @@ class MatchModel extends Nette\Object {
 		$row = $this->database->query("SELECT id_liga, id_klub, id_hoste FROM ZAPAS WHERE id_zapas = ?", $id)->fetch();
 		$sezona = $this->database->query("SELECT id_sezony FROM sezona WHERE aktivni = 1")->fetch();
 		$this->database->query("UPDATE ZAPAS SET skore_domaci = ?, skore_hoste = ? WHERE id_zapas = ?", $domaci, $hoste, $id);
+		$opportunity = $this->getAllOpportunityOfMatch($id);
 		if($domaci > $hoste){
 			$this->database->query("UPDATE tabulka SET vyhry = vyhry + 1, vstrelene_goly = ?, obdrzene_goly = ?, pocet_bodu = pocet_bodu + 3 WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
 				$domaci, $hoste, $row->id_klub, $row->id_liga, $sezona->id_sezony);
 			$this->database->query("UPDATE tabulka SET prohry = prohry + 1, vstrelene_goly = ?, obdrzene_goly = ? WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
 				$hoste, $domaci, $row->id_hoste, $row->id_liga, $sezona->id_sezony);
+			foreach($opportunity as $item){
+				if($item->id_typ_prilezitosti == 2){
+
+				}
+			}
 		}
 		else if($domaci < $hoste){
 			$this->database->query("UPDATE tabulka SET prohry = prohry + 1, vstrelene_goly = ?, obdrzene_goly = ? WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
@@ -84,11 +90,21 @@ class MatchModel extends Nette\Object {
 	}
 
 	public function getAllOpportunityOfMatch($idZapas) {
-		return $row = $this->database->query("SELECT kurz, id_zapas, id_typ_prilezitosti, typ_prilezitost.typ as typ_prilezitost, id_stav_prilezitost FROM prilezitost
+		return $row = $this->database->query("SELECT id_prilezitost, kurz, id_zapas, id_typ_prilezitosti, typ_prilezitost.typ as typ_prilezitost, id_stav_prilezitost FROM prilezitost
 		JOIN typ_prilezitost ON prilezitost.id_typ_prilezitosti = typ_prilezitost.id_typ_prilezitost
 		WHERE id_zapas = ?", $idZapas)->fetchAll();
 	}
-	
+
+
+	public function updateOpportunityWin($idOpportunity){
+		$this->database->query("UPDATE prilezitost SET id_stav_prilezitosti = 2 WHERE id_prilezitosti = ?", $idOpportunity);
+	}
+	public function updateOpportunityLose($idOpportunity){
+		$this->database->query("UPDATE prilezitost SET id_stav_prilezitosti = 3 WHERE id_prilezitosti = ?", $idOpportunity);
+	}
+	public function updateOpportunityCancel($idOpportunity){
+		$this->database->query("UPDATE prilezitost SET id_stav_prilezitosti = 4 WHERE id_prilezitosti = ?", $idOpportunity);
+	}
 	public function hasTypeOfKurzInOpportunity($array, $typ){
 		foreach($array as $item){
 			if($item['typ_prilezitost'] === $typ){
