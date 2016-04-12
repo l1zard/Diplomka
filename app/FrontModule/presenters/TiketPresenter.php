@@ -10,7 +10,7 @@ namespace App\FrontModule\Presenters;
 use Nette;
 use App\Model;
 use Nette\Application\UI;
-use App\Model\TicketModel;
+	use App\Model\TicketModel;
 
 class TiketPresenter extends BasePresenter {
 

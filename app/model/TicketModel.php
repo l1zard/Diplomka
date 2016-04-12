@@ -12,6 +12,7 @@ use Nette;
 class TicketModel extends Nette\Object {
 
 
+
 	private $database;
 
 	public function __construct(Nette\Database\Context $database) {
@@ -83,7 +84,7 @@ class TicketModel extends Nette\Object {
 	}
 
 	public function getUserByTicketID($idTicket){
-		return $this->database->query("SELECT uzivatelske_jmeno FROM tiket
+		return $this->database->query("SELECT uzivatelske_jmeno, tiket.id_uzivatel FROM tiket
 		JOIN uzivatel ON tiket.id_uzivatel = uzivatel.id_uzivatel
 		WHERE id_tiket = ?", $idTicket)->fetch();
 	}
@@ -109,5 +110,47 @@ class TicketModel extends Nette\Object {
 		return Nette\Database\Row::from($array);
 	}
 
+	public function updateTicketsByOpportunities($idOpportunity){
+		$rows = $this->database->query("SELECT prilezitost.id_prilezitost as id_prilezitost, prilezitost.id_typ_prilezitosti as typ_prilezitosti, prilezitost.id_stav_prilezitost as stav_prilezitost, tiket.id_tiket as id_tiket,
+		tiket.id_uzivatel, tiket.id_stav, tiket.castka
+		FROM prilezitost
+		JOIN prilezitost_tiketu ON prilezitost_tiketu.id_prilezitost = prilezitost.id_prilezitost
+		JOIN tiket ON prilezitost_tiketu.id_tiket = tiket.id_tiket
+		WHERE prilezitost.id_prilezitost = ? AND tiket.id_stav = 1", $idOpportunity)->fetchAll();
+		foreach($rows as $row){
+			if($row->stav_prilezitost == 3){
+				$this->setTicketLost($row->id_tiket);
+			}
+			elseif($row->stav_prilezitost == 2){
+				if($this->checkIfTicketIsDone($row->id_tiket)){
+					$this->setTicketWin($row->id_tiket);
+					$user = $this->getUserByTicketID($row->id_tiket);
+					$tiket = $this->getTicketMoneyAndKurz($row->id_tiket);
+					$this->updateUserMoney($user->id_uzivatel, $tiket->vyhra);
+				}
+			}
+		}
+	}
 
+	public function setTicketLost($idTicket){
+		$ticket = $this->getTicketMoneyAndKurz($idTicket);
+		$this->database->query("UPDATE tiket SET id_stav = 3, vyhra = 0, datum_vyhodnoceni = NOW(), celkovy_kurz = ?",$ticket->kurz);
+	}
+	public function setTicketWin($idTicket){
+		$ticket = $this->getTicketMoneyAndKurz($idTicket);
+		$this->database->query("UPDATE tiket SET id_stav = 2, vyhra = ?, datum_vyhodnoceni = NOW(), celkovy_kurz = ?", $ticket->vyhra, $ticket->kurz);
+	}
+	public function checkIfTicketIsDone($idTicket){
+		$ticket = $this->getTicketMatches($idTicket);
+		foreach($ticket as $match){
+			if($match->stav_prilezitost != 2){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public function updateUserMoney($idUser, $money){
+		$this->database->query("UPDATE uzivatel SET zustatek = zustatek + ? WHERE id_uzivatel = ?", $money, $idUser);
+	}
 }

@@ -39,47 +39,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="id.latte" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/FrontModule/templates/Tiket/id.latte">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MatchModel.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MatchModel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/model/MatchModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5566038">
-              <caret line="105" column="79" selection-start-line="105" selection-start-column="79" selection-end-line="105" selection-end-column="79" />
+            <state vertical-scroll-proportion="-1.5454545">
+              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding>
-                <marker date="1460446916932" expanded="true" signature="376:724" placeholder="SELECT id_za... zapas" />
-                <marker date="1460446916932" expanded="true" signature="837:1131" placeholder="SELECT id_za... zapas" />
-                <marker date="1460446916932" expanded="true" signature="1251:1314" placeholder="SELECT id_li... ZAPAS" />
-                <marker date="1460446916932" expanded="true" signature="1368:1414" placeholder="SELECT id_se... sezona" />
-                <marker date="1460446916932" expanded="true" signature="1453:1522" placeholder="UPDATE ZAPAS... " />
-                <marker date="1460446916932" expanded="true" signature="1654:1810" placeholder="UPDATE tabul... " />
-                <marker date="1460446916932" expanded="true" signature="1912:2041" placeholder="UPDATE tabul... " />
-                <marker date="1460446916932" expanded="true" signature="2265:2394" placeholder="UPDATE tabul... " />
-                <marker date="1460446916932" expanded="true" signature="2496:2652" placeholder="UPDATE tabul... " />
-                <marker date="1460446916932" expanded="true" signature="2789:2947" placeholder="UPDATE tabul... " />
-                <marker date="1460446916932" expanded="true" signature="3049:3207" placeholder="UPDATE tabul... " />
-                <marker date="1460446916932" expanded="true" signature="3671:3749" placeholder="UPDATE prile... " />
-                <marker date="1460446916932" expanded="true" signature="3814:3888" placeholder="INSERT INTO prilezitost... " />
-                <marker date="1460446916932" expanded="true" signature="4011:4138" placeholder="SELECT kurz,... prilezitost" />
-                <marker date="1460446916932" expanded="true" signature="4281:4533" placeholder="SELECT kurz,... prilezitost" />
-                <marker date="1460446916932" expanded="true" signature="4645:4667" placeholder="UPDATE prile... " />
-                <marker date="1460446916932" expanded="true" signature="4645:4718" placeholder="UPDATE prile... " />
-                <marker date="1460446916932" expanded="true" signature="4823:4896" placeholder="UPDATE prile... " />
-                <marker date="1460446916932" expanded="true" signature="5003:5076" placeholder="UPDATE prile... " />
-                <marker date="1460446916932" expanded="true" signature="5410:5470" placeholder="SELECT COUNT... prilezitost" />
-                <marker date="1460446916932" expanded="true" signature="5544:5592" placeholder="UPDATE zapas... " />
-                <marker date="1460446916932" expanded="true" signature="5734:5779" placeholder="SELECT zobra... zapas" />
-                <marker date="1460446916932" expanded="true" signature="6042:6145" placeholder="INSERT INTO zapas... " />
-                <marker date="1460446916932" expanded="true" signature="6285:6499" placeholder="SELECT id_za... zapas" />
-                <marker date="1460446916932" expanded="true" signature="6588:6793" placeholder="SELECT id_pr... prilezitost" />
+                <marker date="1460459761198" expanded="true" signature="497:845" placeholder="SELECT id_za... zapas" />
+                <marker date="1460459761198" expanded="true" signature="958:1252" placeholder="SELECT id_za... zapas" />
+                <marker date="1460459761198" expanded="true" signature="1372:1435" placeholder="SELECT id_li... ZAPAS" />
+                <marker date="1460459761198" expanded="true" signature="1489:1535" placeholder="SELECT id_se... sezona" />
+                <marker date="1460459761198" expanded="true" signature="1574:1643" placeholder="UPDATE ZAPAS... " />
+                <marker date="1460459761198" expanded="true" signature="1775:1931" placeholder="UPDATE tabul... " />
+                <marker date="1460459761198" expanded="true" signature="2033:2162" placeholder="UPDATE tabul... " />
+                <marker date="1460459761198" expanded="true" signature="2593:2722" placeholder="UPDATE tabul... " />
+                <marker date="1460459761198" expanded="true" signature="2824:2980" placeholder="UPDATE tabul... " />
+                <marker date="1460459761198" expanded="true" signature="3412:3570" placeholder="UPDATE tabul... " />
+                <marker date="1460459761198" expanded="true" signature="3672:3830" placeholder="UPDATE tabul... " />
+                <marker date="1460459761198" expanded="true" signature="4589:4667" placeholder="UPDATE prile... " />
+                <marker date="1460459761198" expanded="true" signature="4732:4806" placeholder="INSERT INTO prilezitost... " />
+                <marker date="1460459761198" expanded="true" signature="4929:5056" placeholder="SELECT kurz,... prilezitost" />
+                <marker date="1460459761198" expanded="true" signature="5199:5451" placeholder="SELECT kurz,... prilezitost" />
+                <marker date="1460459761198" expanded="true" signature="5563:5585" placeholder="UPDATE prile... " />
+                <marker date="1460459761198" expanded="true" signature="5563:5634" placeholder="UPDATE prile... " />
+                <marker date="1460459761198" expanded="true" signature="5739:5810" placeholder="UPDATE prile... " />
+                <marker date="1460459761198" expanded="true" signature="5917:5988" placeholder="UPDATE prile... " />
+                <marker date="1460459761198" expanded="true" signature="6322:6382" placeholder="SELECT COUNT... prilezitost" />
+                <marker date="1460459761198" expanded="true" signature="6456:6504" placeholder="UPDATE zapas... " />
+                <marker date="1460459761198" expanded="true" signature="6646:6691" placeholder="SELECT zobra... zapas" />
+                <marker date="1460459761198" expanded="true" signature="6954:7057" placeholder="INSERT INTO zapas... " />
+                <marker date="1460459761198" expanded="true" signature="7197:7411" placeholder="SELECT id_za... zapas" />
+                <marker date="1460459761198" expanded="true" signature="7500:7705" placeholder="SELECT id_pr... prilezitost" />
               </folding>
             </state>
           </provider>
@@ -88,8 +78,8 @@
       <file leaf-file-name="PaymentModel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/model/PaymentModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="-12.923077">
+              <caret line="96" column="10" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
               <folding>
                 <marker date="1459837083977" expanded="true" signature="2552:2648" placeholder="INSERT INTO platba... " />
                 <marker date="1459837083977" expanded="true" signature="2795:2842" placeholder="UPDATE platb... " />
@@ -124,27 +114,45 @@
       <file leaf-file-name="TiketPresenter.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/FrontModule/presenters/TiketPresenter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state vertical-scroll-proportion="-4.576923">
+              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TicketModel.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TicketModel.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/model/TicketModel.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.905661">
-              <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.43512973">
+              <caret line="143" column="53" selection-start-line="143" selection-start-column="53" selection-end-line="143" selection-end-column="53" />
               <folding>
-                <marker date="1460446046129" expanded="true" signature="595:670" placeholder="INSERT INTO tiket... " />
-                <marker date="1460446046129" expanded="true" signature="836:904" placeholder="INSERT INTO prilezitost_tiketu... " />
-                <marker date="1460446046129" expanded="true" signature="1015:1097" placeholder="SELECT id_ti... tiket" />
-                <marker date="1460446046129" expanded="true" signature="1518:2115" placeholder="SELECT domac... tiket" />
-                <marker date="1460446046129" expanded="true" signature="2636:2752" placeholder="SELECT uziva... tiket" />
-                <marker date="1460446046129" expanded="true" signature="2865:3074" placeholder="SELECT kurz tiket" />
-                <marker date="1460446046129" expanded="true" signature="3218:3287" placeholder="SELECT castk... tiket" />
+                <marker date="1460459911144" expanded="true" signature="596:671" placeholder="INSERT INTO tiket... " />
+                <marker date="1460459911144" expanded="true" signature="837:905" placeholder="INSERT INTO prilezitost_tiketu... " />
+                <marker date="1460459911144" expanded="true" signature="1016:1098" placeholder="SELECT id_ti... tiket" />
+                <marker date="1460459911144" expanded="true" signature="1519:2116" placeholder="SELECT domac... tiket" />
+                <marker date="1460459911144" expanded="true" signature="2637:2772" placeholder="SELECT uziva... tiket" />
+                <marker date="1460459911144" expanded="true" signature="2885:3094" placeholder="SELECT kurz tiket" />
+                <marker date="1460459911144" expanded="true" signature="3238:3307" placeholder="SELECT castk... tiket" />
+                <marker date="1460459911144" expanded="true" signature="3657:4125" placeholder="SELECT * FRO... prilezitost" />
+                <marker date="1460459911144" expanded="true" signature="4720:4787" placeholder="UPDATE tiket... " />
+                <marker date="1460459911144" expanded="true" signature="4720:4788" placeholder="UPDATE tiket... " />
+                <marker date="1460459911144" expanded="true" signature="4720:4804" placeholder="UPDATE tiket... " />
+                <marker date="1460459911144" expanded="true" signature="4720:4815" placeholder="UPDATE tiket... " />
+                <marker date="1460459911144" expanded="true" signature="4946:5030" placeholder="UPDATE tiket... " />
+                <marker date="1460459911144" expanded="true" signature="5356:5397" placeholder="UPDATE uziva... " />
+                <marker date="1460459911144" expanded="true" signature="5356:5421" placeholder="UPDATE uziva... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="exception.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/log/exception.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="298" selection-start-line="10" selection-start-column="294" selection-end-line="10" selection-end-column="298" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -189,11 +197,12 @@
         <option value="$PROJECT_DIR$/www/js/front.js" />
         <option value="$PROJECT_DIR$/app/FrontModule/templates/Tiket/default.latte" />
         <option value="$PROJECT_DIR$/app/FrontModule/templates/Tiket/id.latte" />
-        <option value="$PROJECT_DIR$/app/FrontModule/presenters/TiketPresenter.php" />
         <option value="$PROJECT_DIR$/app/FrontModule/templates/Tiket/@layout.latte" />
         <option value="$PROJECT_DIR$/app/model/UserModel.php" />
-        <option value="$PROJECT_DIR$/app/model/TicketModel.php" />
+        <option value="$PROJECT_DIR$/app/FrontModule/presenters/TiketPresenter.php" />
+        <option value="$PROJECT_DIR$/app/model/PaymentModel.php" />
         <option value="$PROJECT_DIR$/app/model/MatchModel.php" />
+        <option value="$PROJECT_DIR$/app/model/TicketModel.php" />
       </list>
     </option>
   </component>
@@ -302,6 +311,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Diplomka" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Diplomka" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="log" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -593,21 +616,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/model/UserModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
-          <folding>
-            <marker date="1460443300055" expanded="true" signature="394:596" placeholder="SELECT id_uz... uzivatel" />
-            <marker date="1460443300055" expanded="true" signature="661:855" placeholder="SELECT id_uz... uzivatel" />
-            <marker date="1460443300055" expanded="true" signature="998:1254" placeholder="SELECT id_uz... uzivatel" />
-            <marker date="1460443300055" expanded="true" signature="1402:1534" placeholder="SELECT id_uz... uzivatel" />
-            <marker date="1460443300055" expanded="true" signature="1633:1684" placeholder="SELECT zusta... uzivatel" />
-            <marker date="1460443300055" expanded="true" signature="1779:1844" placeholder="UPDATE uziva... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/FrontModule/templates/Tiket/id.latte">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -621,31 +629,31 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="143" column="24" selection-start-line="142" selection-start-column="34" selection-end-line="142" selection-end-column="57" />
           <folding>
-            <marker date="1460446916932" expanded="true" signature="376:724" placeholder="SELECT id_za... zapas" />
-            <marker date="1460446916932" expanded="true" signature="837:1131" placeholder="SELECT id_za... zapas" />
-            <marker date="1460446916932" expanded="true" signature="1251:1314" placeholder="SELECT id_li... ZAPAS" />
-            <marker date="1460446916932" expanded="true" signature="1368:1414" placeholder="SELECT id_se... sezona" />
-            <marker date="1460446916932" expanded="true" signature="1453:1522" placeholder="UPDATE ZAPAS... " />
-            <marker date="1460446916932" expanded="true" signature="1654:1810" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="1912:2041" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="2265:2394" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="2496:2652" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="2789:2947" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="3049:3207" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="3671:3749" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="3814:3888" placeholder="INSERT INTO prilezitost... " />
-            <marker date="1460446916932" expanded="true" signature="4011:4138" placeholder="SELECT kurz,... prilezitost" />
-            <marker date="1460446916932" expanded="true" signature="4281:4533" placeholder="SELECT kurz,... prilezitost" />
-            <marker date="1460446916932" expanded="true" signature="4645:4667" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="4645:4718" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="4823:4896" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="5003:5076" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="5410:5470" placeholder="SELECT COUNT... prilezitost" />
-            <marker date="1460446916932" expanded="true" signature="5544:5592" placeholder="UPDATE zapas... " />
-            <marker date="1460446916932" expanded="true" signature="5734:5779" placeholder="SELECT zobra... zapas" />
-            <marker date="1460446916932" expanded="true" signature="6042:6145" placeholder="INSERT INTO zapas... " />
-            <marker date="1460446916932" expanded="true" signature="6285:6499" placeholder="SELECT id_za... zapas" />
-            <marker date="1460446916932" expanded="true" signature="6588:6793" placeholder="SELECT id_pr... prilezitost" />
+            <marker date="1460459761198" expanded="true" signature="497:845" placeholder="SELECT id_za... zapas" />
+            <marker date="1460459761198" expanded="true" signature="958:1252" placeholder="SELECT id_za... zapas" />
+            <marker date="1460459761198" expanded="true" signature="1372:1435" placeholder="SELECT id_li... ZAPAS" />
+            <marker date="1460459761198" expanded="true" signature="1489:1535" placeholder="SELECT id_se... sezona" />
+            <marker date="1460459761198" expanded="true" signature="1574:1643" placeholder="UPDATE ZAPAS... " />
+            <marker date="1460459761198" expanded="true" signature="1775:1931" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="2033:2162" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="2593:2722" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="2824:2980" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="3412:3570" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="3672:3830" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="4589:4667" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="4732:4806" placeholder="INSERT INTO prilezitost... " />
+            <marker date="1460459761198" expanded="true" signature="4929:5056" placeholder="SELECT kurz,... prilezitost" />
+            <marker date="1460459761198" expanded="true" signature="5199:5451" placeholder="SELECT kurz,... prilezitost" />
+            <marker date="1460459761198" expanded="true" signature="5563:5585" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="5563:5634" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="5739:5810" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="5917:5988" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="6322:6382" placeholder="SELECT COUNT... prilezitost" />
+            <marker date="1460459761198" expanded="true" signature="6456:6504" placeholder="UPDATE zapas... " />
+            <marker date="1460459761198" expanded="true" signature="6646:6691" placeholder="SELECT zobra... zapas" />
+            <marker date="1460459761198" expanded="true" signature="6954:7057" placeholder="INSERT INTO zapas... " />
+            <marker date="1460459761198" expanded="true" signature="7197:7411" placeholder="SELECT id_za... zapas" />
+            <marker date="1460459761198" expanded="true" signature="7500:7705" placeholder="SELECT id_pr... prilezitost" />
           </folding>
         </state>
       </provider>
@@ -677,13 +685,21 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding>
-            <marker date="1460446046129" expanded="true" signature="595:670" placeholder="INSERT INTO tiket... " />
-            <marker date="1460446046129" expanded="true" signature="836:904" placeholder="INSERT INTO prilezitost_tiketu... " />
-            <marker date="1460446046129" expanded="true" signature="1015:1097" placeholder="SELECT id_ti... tiket" />
-            <marker date="1460446046129" expanded="true" signature="1518:2115" placeholder="SELECT domac... tiket" />
-            <marker date="1460446046129" expanded="true" signature="2636:2752" placeholder="SELECT uziva... tiket" />
-            <marker date="1460446046129" expanded="true" signature="2865:3074" placeholder="SELECT kurz tiket" />
-            <marker date="1460446046129" expanded="true" signature="3218:3287" placeholder="SELECT castk... tiket" />
+            <marker date="1460459911144" expanded="true" signature="596:671" placeholder="INSERT INTO tiket... " />
+            <marker date="1460459911144" expanded="true" signature="837:905" placeholder="INSERT INTO prilezitost_tiketu... " />
+            <marker date="1460459911144" expanded="true" signature="1016:1098" placeholder="SELECT id_ti... tiket" />
+            <marker date="1460459911144" expanded="true" signature="1519:2116" placeholder="SELECT domac... tiket" />
+            <marker date="1460459911144" expanded="true" signature="2637:2772" placeholder="SELECT uziva... tiket" />
+            <marker date="1460459911144" expanded="true" signature="2885:3094" placeholder="SELECT kurz tiket" />
+            <marker date="1460459911144" expanded="true" signature="3238:3307" placeholder="SELECT castk... tiket" />
+            <marker date="1460459911144" expanded="true" signature="3657:4125" placeholder="SELECT * FRO... prilezitost" />
+            <marker date="1460459911144" expanded="true" signature="4720:4787" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4788" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4804" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4815" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4946:5030" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="5356:5397" placeholder="UPDATE uziva... " />
+            <marker date="1460459911144" expanded="true" signature="5356:5421" placeholder="UPDATE uziva... " />
           </folding>
         </state>
       </provider>
@@ -748,31 +764,31 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="142" column="50" selection-start-line="142" selection-start-column="27" selection-end-line="142" selection-end-column="50" />
           <folding>
-            <marker date="1460446916932" expanded="true" signature="376:724" placeholder="SELECT id_za... zapas" />
-            <marker date="1460446916932" expanded="true" signature="837:1131" placeholder="SELECT id_za... zapas" />
-            <marker date="1460446916932" expanded="true" signature="1251:1314" placeholder="SELECT id_li... ZAPAS" />
-            <marker date="1460446916932" expanded="true" signature="1368:1414" placeholder="SELECT id_se... sezona" />
-            <marker date="1460446916932" expanded="true" signature="1453:1522" placeholder="UPDATE ZAPAS... " />
-            <marker date="1460446916932" expanded="true" signature="1654:1810" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="1912:2041" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="2265:2394" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="2496:2652" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="2789:2947" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="3049:3207" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="3671:3749" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="3814:3888" placeholder="INSERT INTO prilezitost... " />
-            <marker date="1460446916932" expanded="true" signature="4011:4138" placeholder="SELECT kurz,... prilezitost" />
-            <marker date="1460446916932" expanded="true" signature="4281:4533" placeholder="SELECT kurz,... prilezitost" />
-            <marker date="1460446916932" expanded="true" signature="4645:4667" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="4645:4718" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="4823:4896" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="5003:5076" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="5410:5470" placeholder="SELECT COUNT... prilezitost" />
-            <marker date="1460446916932" expanded="true" signature="5544:5592" placeholder="UPDATE zapas... " />
-            <marker date="1460446916932" expanded="true" signature="5734:5779" placeholder="SELECT zobra... zapas" />
-            <marker date="1460446916932" expanded="true" signature="6042:6145" placeholder="INSERT INTO zapas... " />
-            <marker date="1460446916932" expanded="true" signature="6285:6499" placeholder="SELECT id_za... zapas" />
-            <marker date="1460446916932" expanded="true" signature="6588:6793" placeholder="SELECT id_pr... prilezitost" />
+            <marker date="1460459761198" expanded="true" signature="497:845" placeholder="SELECT id_za... zapas" />
+            <marker date="1460459761198" expanded="true" signature="958:1252" placeholder="SELECT id_za... zapas" />
+            <marker date="1460459761198" expanded="true" signature="1372:1435" placeholder="SELECT id_li... ZAPAS" />
+            <marker date="1460459761198" expanded="true" signature="1489:1535" placeholder="SELECT id_se... sezona" />
+            <marker date="1460459761198" expanded="true" signature="1574:1643" placeholder="UPDATE ZAPAS... " />
+            <marker date="1460459761198" expanded="true" signature="1775:1931" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="2033:2162" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="2593:2722" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="2824:2980" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="3412:3570" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="3672:3830" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="4589:4667" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="4732:4806" placeholder="INSERT INTO prilezitost... " />
+            <marker date="1460459761198" expanded="true" signature="4929:5056" placeholder="SELECT kurz,... prilezitost" />
+            <marker date="1460459761198" expanded="true" signature="5199:5451" placeholder="SELECT kurz,... prilezitost" />
+            <marker date="1460459761198" expanded="true" signature="5563:5585" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="5563:5634" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="5739:5810" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="5917:5988" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="6322:6382" placeholder="SELECT COUNT... prilezitost" />
+            <marker date="1460459761198" expanded="true" signature="6456:6504" placeholder="UPDATE zapas... " />
+            <marker date="1460459761198" expanded="true" signature="6646:6691" placeholder="SELECT zobra... zapas" />
+            <marker date="1460459761198" expanded="true" signature="6954:7057" placeholder="INSERT INTO zapas... " />
+            <marker date="1460459761198" expanded="true" signature="7197:7411" placeholder="SELECT id_za... zapas" />
+            <marker date="1460459761198" expanded="true" signature="7500:7705" placeholder="SELECT id_pr... prilezitost" />
           </folding>
         </state>
       </provider>
@@ -804,13 +820,21 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="68" column="1" selection-start-line="68" selection-start-column="1" selection-end-line="68" selection-end-column="1" />
           <folding>
-            <marker date="1460446046129" expanded="true" signature="595:670" placeholder="INSERT INTO tiket... " />
-            <marker date="1460446046129" expanded="true" signature="836:904" placeholder="INSERT INTO prilezitost_tiketu... " />
-            <marker date="1460446046129" expanded="true" signature="1015:1097" placeholder="SELECT id_ti... tiket" />
-            <marker date="1460446046129" expanded="true" signature="1518:2115" placeholder="SELECT domac... tiket" />
-            <marker date="1460446046129" expanded="true" signature="2636:2752" placeholder="SELECT uziva... tiket" />
-            <marker date="1460446046129" expanded="true" signature="2865:3074" placeholder="SELECT kurz tiket" />
-            <marker date="1460446046129" expanded="true" signature="3218:3287" placeholder="SELECT castk... tiket" />
+            <marker date="1460459911144" expanded="true" signature="596:671" placeholder="INSERT INTO tiket... " />
+            <marker date="1460459911144" expanded="true" signature="837:905" placeholder="INSERT INTO prilezitost_tiketu... " />
+            <marker date="1460459911144" expanded="true" signature="1016:1098" placeholder="SELECT id_ti... tiket" />
+            <marker date="1460459911144" expanded="true" signature="1519:2116" placeholder="SELECT domac... tiket" />
+            <marker date="1460459911144" expanded="true" signature="2637:2772" placeholder="SELECT uziva... tiket" />
+            <marker date="1460459911144" expanded="true" signature="2885:3094" placeholder="SELECT kurz tiket" />
+            <marker date="1460459911144" expanded="true" signature="3238:3307" placeholder="SELECT castk... tiket" />
+            <marker date="1460459911144" expanded="true" signature="3657:4125" placeholder="SELECT * FRO... prilezitost" />
+            <marker date="1460459911144" expanded="true" signature="4720:4787" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4788" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4804" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4815" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4946:5030" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="5356:5397" placeholder="UPDATE uziva... " />
+            <marker date="1460459911144" expanded="true" signature="5356:5421" placeholder="UPDATE uziva... " />
           </folding>
         </state>
       </provider>
@@ -895,13 +919,21 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1460446046129" expanded="true" signature="595:670" placeholder="INSERT INTO tiket... " />
-            <marker date="1460446046129" expanded="true" signature="836:904" placeholder="INSERT INTO prilezitost_tiketu... " />
-            <marker date="1460446046129" expanded="true" signature="1015:1097" placeholder="SELECT id_ti... tiket" />
-            <marker date="1460446046129" expanded="true" signature="1518:2115" placeholder="SELECT domac... tiket" />
-            <marker date="1460446046129" expanded="true" signature="2636:2752" placeholder="SELECT uziva... tiket" />
-            <marker date="1460446046129" expanded="true" signature="2865:3074" placeholder="SELECT kurz tiket" />
-            <marker date="1460446046129" expanded="true" signature="3218:3287" placeholder="SELECT castk... tiket" />
+            <marker date="1460459911144" expanded="true" signature="596:671" placeholder="INSERT INTO tiket... " />
+            <marker date="1460459911144" expanded="true" signature="837:905" placeholder="INSERT INTO prilezitost_tiketu... " />
+            <marker date="1460459911144" expanded="true" signature="1016:1098" placeholder="SELECT id_ti... tiket" />
+            <marker date="1460459911144" expanded="true" signature="1519:2116" placeholder="SELECT domac... tiket" />
+            <marker date="1460459911144" expanded="true" signature="2637:2772" placeholder="SELECT uziva... tiket" />
+            <marker date="1460459911144" expanded="true" signature="2885:3094" placeholder="SELECT kurz tiket" />
+            <marker date="1460459911144" expanded="true" signature="3238:3307" placeholder="SELECT castk... tiket" />
+            <marker date="1460459911144" expanded="true" signature="3657:4125" placeholder="SELECT * FRO... prilezitost" />
+            <marker date="1460459911144" expanded="true" signature="4720:4787" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4788" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4804" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4815" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4946:5030" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="5356:5397" placeholder="UPDATE uziva... " />
+            <marker date="1460459911144" expanded="true" signature="5356:5421" placeholder="UPDATE uziva... " />
           </folding>
         </state>
       </provider>
@@ -1043,18 +1075,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/FrontModule/presenters/TiketPresenter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/FrontModule/templates/Tiket/@layout.latte">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7422062">
           <caret line="145" column="73" selection-start-line="145" selection-start-column="73" selection-end-line="145" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/FrontModule/presenters/TiketPresenter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.576923">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -1076,8 +1108,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/model/PaymentModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-12.923077">
+          <caret line="96" column="10" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
           <folding>
             <marker date="1459837083977" expanded="true" signature="2552:2648" placeholder="INSERT INTO platba... " />
             <marker date="1459837083977" expanded="true" signature="2795:2842" placeholder="UPDATE platb... " />
@@ -1088,52 +1120,68 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/TicketModel.php">
+    <entry file="file://$PROJECT_DIR$/app/model/MatchModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.905661">
-          <caret line="111" column="0" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+        <state vertical-scroll-proportion="-1.5454545">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding>
-            <marker date="1460446046129" expanded="true" signature="595:670" placeholder="INSERT INTO tiket... " />
-            <marker date="1460446046129" expanded="true" signature="836:904" placeholder="INSERT INTO prilezitost_tiketu... " />
-            <marker date="1460446046129" expanded="true" signature="1015:1097" placeholder="SELECT id_ti... tiket" />
-            <marker date="1460446046129" expanded="true" signature="1518:2115" placeholder="SELECT domac... tiket" />
-            <marker date="1460446046129" expanded="true" signature="2636:2752" placeholder="SELECT uziva... tiket" />
-            <marker date="1460446046129" expanded="true" signature="2865:3074" placeholder="SELECT kurz tiket" />
-            <marker date="1460446046129" expanded="true" signature="3218:3287" placeholder="SELECT castk... tiket" />
+            <marker date="1460459761198" expanded="true" signature="497:845" placeholder="SELECT id_za... zapas" />
+            <marker date="1460459761198" expanded="true" signature="958:1252" placeholder="SELECT id_za... zapas" />
+            <marker date="1460459761198" expanded="true" signature="1372:1435" placeholder="SELECT id_li... ZAPAS" />
+            <marker date="1460459761198" expanded="true" signature="1489:1535" placeholder="SELECT id_se... sezona" />
+            <marker date="1460459761198" expanded="true" signature="1574:1643" placeholder="UPDATE ZAPAS... " />
+            <marker date="1460459761198" expanded="true" signature="1775:1931" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="2033:2162" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="2593:2722" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="2824:2980" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="3412:3570" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="3672:3830" placeholder="UPDATE tabul... " />
+            <marker date="1460459761198" expanded="true" signature="4589:4667" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="4732:4806" placeholder="INSERT INTO prilezitost... " />
+            <marker date="1460459761198" expanded="true" signature="4929:5056" placeholder="SELECT kurz,... prilezitost" />
+            <marker date="1460459761198" expanded="true" signature="5199:5451" placeholder="SELECT kurz,... prilezitost" />
+            <marker date="1460459761198" expanded="true" signature="5563:5585" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="5563:5634" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="5739:5810" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="5917:5988" placeholder="UPDATE prile... " />
+            <marker date="1460459761198" expanded="true" signature="6322:6382" placeholder="SELECT COUNT... prilezitost" />
+            <marker date="1460459761198" expanded="true" signature="6456:6504" placeholder="UPDATE zapas... " />
+            <marker date="1460459761198" expanded="true" signature="6646:6691" placeholder="SELECT zobra... zapas" />
+            <marker date="1460459761198" expanded="true" signature="6954:7057" placeholder="INSERT INTO zapas... " />
+            <marker date="1460459761198" expanded="true" signature="7197:7411" placeholder="SELECT id_za... zapas" />
+            <marker date="1460459761198" expanded="true" signature="7500:7705" placeholder="SELECT id_pr... prilezitost" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/model/MatchModel.php">
+    <entry file="file://$PROJECT_DIR$/log/exception.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5566038">
-          <caret line="105" column="79" selection-start-line="105" selection-start-column="79" selection-end-line="105" selection-end-column="79" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="298" selection-start-line="10" selection-start-column="294" selection-end-line="10" selection-end-column="298" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/model/TicketModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43512973">
+          <caret line="143" column="53" selection-start-line="143" selection-start-column="53" selection-end-line="143" selection-end-column="53" />
           <folding>
-            <marker date="1460446916932" expanded="true" signature="376:724" placeholder="SELECT id_za... zapas" />
-            <marker date="1460446916932" expanded="true" signature="837:1131" placeholder="SELECT id_za... zapas" />
-            <marker date="1460446916932" expanded="true" signature="1251:1314" placeholder="SELECT id_li... ZAPAS" />
-            <marker date="1460446916932" expanded="true" signature="1368:1414" placeholder="SELECT id_se... sezona" />
-            <marker date="1460446916932" expanded="true" signature="1453:1522" placeholder="UPDATE ZAPAS... " />
-            <marker date="1460446916932" expanded="true" signature="1654:1810" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="1912:2041" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="2265:2394" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="2496:2652" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="2789:2947" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="3049:3207" placeholder="UPDATE tabul... " />
-            <marker date="1460446916932" expanded="true" signature="3671:3749" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="3814:3888" placeholder="INSERT INTO prilezitost... " />
-            <marker date="1460446916932" expanded="true" signature="4011:4138" placeholder="SELECT kurz,... prilezitost" />
-            <marker date="1460446916932" expanded="true" signature="4281:4533" placeholder="SELECT kurz,... prilezitost" />
-            <marker date="1460446916932" expanded="true" signature="4645:4667" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="4645:4718" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="4823:4896" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="5003:5076" placeholder="UPDATE prile... " />
-            <marker date="1460446916932" expanded="true" signature="5410:5470" placeholder="SELECT COUNT... prilezitost" />
-            <marker date="1460446916932" expanded="true" signature="5544:5592" placeholder="UPDATE zapas... " />
-            <marker date="1460446916932" expanded="true" signature="5734:5779" placeholder="SELECT zobra... zapas" />
-            <marker date="1460446916932" expanded="true" signature="6042:6145" placeholder="INSERT INTO zapas... " />
-            <marker date="1460446916932" expanded="true" signature="6285:6499" placeholder="SELECT id_za... zapas" />
-            <marker date="1460446916932" expanded="true" signature="6588:6793" placeholder="SELECT id_pr... prilezitost" />
+            <marker date="1460459911144" expanded="true" signature="596:671" placeholder="INSERT INTO tiket... " />
+            <marker date="1460459911144" expanded="true" signature="837:905" placeholder="INSERT INTO prilezitost_tiketu... " />
+            <marker date="1460459911144" expanded="true" signature="1016:1098" placeholder="SELECT id_ti... tiket" />
+            <marker date="1460459911144" expanded="true" signature="1519:2116" placeholder="SELECT domac... tiket" />
+            <marker date="1460459911144" expanded="true" signature="2637:2772" placeholder="SELECT uziva... tiket" />
+            <marker date="1460459911144" expanded="true" signature="2885:3094" placeholder="SELECT kurz tiket" />
+            <marker date="1460459911144" expanded="true" signature="3238:3307" placeholder="SELECT castk... tiket" />
+            <marker date="1460459911144" expanded="true" signature="3657:4125" placeholder="SELECT * FRO... prilezitost" />
+            <marker date="1460459911144" expanded="true" signature="4720:4787" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4788" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4804" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4720:4815" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="4946:5030" placeholder="UPDATE tiket... " />
+            <marker date="1460459911144" expanded="true" signature="5356:5397" placeholder="UPDATE uziva... " />
+            <marker date="1460459911144" expanded="true" signature="5356:5421" placeholder="UPDATE uziva... " />
           </folding>
         </state>
       </provider>

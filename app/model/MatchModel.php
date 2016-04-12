@@ -12,11 +12,14 @@ use Nette;
 
 class MatchModel extends Nette\Object {
 
+	/** @var TicketModel */
+	public $ticketModel;
+
 	private $database;
 
-	public function __construct(Nette\Database\Context $database) {
+	public function __construct(Nette\Database\Context $database, \App\Model\TicketModel $ticketModel) {
 		$this->database = $database;
-
+		$this->ticketModel = $ticketModel;
 	}
 
 	public function getMatches($idClub, $limit = null) {
@@ -45,8 +48,12 @@ class MatchModel extends Nette\Object {
 				$hoste, $domaci, $row->id_hoste, $row->id_liga, $sezona->id_sezony);
 			foreach($opportunity as $item){
 				if($item->id_typ_prilezitosti == 2){
-
+					$this->updateOpportunityWin($item->id_prilezitost);
 				}
+				else{
+					$this->updateOpportunityLose($item->id_prilezitost);
+				}
+				$this->ticketModel->updateTicketsByOpportunities($item->id_prilezitost);
 			}
 		}
 		else if($domaci < $hoste){
@@ -54,12 +61,30 @@ class MatchModel extends Nette\Object {
 				$domaci, $hoste, $row->id_klub, $row->id_liga, $sezona->id_sezony);
 			$this->database->query("UPDATE tabulka SET vyhry = vyhry + 1, vstrelene_goly = ?, obdrzene_goly = ?, pocet_bodu = pocet_bodu + 3 WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
 				$hoste, $domaci, $row->id_hoste, $row->id_liga, $sezona->id_sezony);
+			foreach($opportunity as $item){
+				if($item->id_typ_prilezitosti == 3){
+					$this->updateOpportunityWin($item->id_prilezitost);
+				}
+				else{
+					$this->updateOpportunityLose($item->id_prilezitost);
+				}
+				$this->ticketModel->updateTicketsByOpportunities($item->id_prilezitost);
+			}
 		}
 		else if($domaci == $hoste){
 			$this->database->query("UPDATE tabulka SET remizy = remizy + 1, vstrelene_goly = ?, obdrzene_goly = ?, pocet_bodu = pocet_bodu + 1 WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
 				$domaci, $hoste, $row->id_klub, $row->id_liga, $sezona->id_sezony);
 			$this->database->query("UPDATE tabulka SET remizy = remizy + 1, vstrelene_goly = ?, obdrzene_goly = ?, pocet_bodu = pocet_bodu + 1 WHERE id_klub = ? AND id_liga = ? AND id_sezony = ?",
 				$hoste, $domaci, $row->id_hoste, $row->id_liga, $sezona->id_sezony);
+			foreach($opportunity as $item){
+				if($item->id_typ_prilezitosti == 1){
+					$this->updateOpportunityWin($item->id_prilezitost);
+				}
+				else{
+					$this->updateOpportunityLose($item->id_prilezitost);
+				}
+				$this->ticketModel->updateTicketsByOpportunities($item->id_prilezitost);
+			}
 		}
 	}
 
@@ -97,13 +122,13 @@ class MatchModel extends Nette\Object {
 
 
 	public function updateOpportunityWin($idOpportunity){
-		$this->database->query("UPDATE prilezitost SET id_stav_prilezitosti = 2 WHERE id_prilezitosti = ?", $idOpportunity);
+		$this->database->query("UPDATE prilezitost SET id_stav_prilezitost = 2 WHERE id_prilezitost = ?", $idOpportunity);
 	}
 	public function updateOpportunityLose($idOpportunity){
-		$this->database->query("UPDATE prilezitost SET id_stav_prilezitosti = 3 WHERE id_prilezitosti = ?", $idOpportunity);
+		$this->database->query("UPDATE prilezitost SET id_stav_prilezitost = 3 WHERE id_prilezitost = ?", $idOpportunity);
 	}
 	public function updateOpportunityCancel($idOpportunity){
-		$this->database->query("UPDATE prilezitost SET id_stav_prilezitosti = 4 WHERE id_prilezitosti = ?", $idOpportunity);
+		$this->database->query("UPDATE prilezitost SET id_stav_prilezitost = 4 WHERE id_prilezitost = ?", $idOpportunity);
 	}
 	public function hasTypeOfKurzInOpportunity($array, $typ){
 		foreach($array as $item){
