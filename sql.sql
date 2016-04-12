@@ -195,7 +195,7 @@ CREATE TABLE IF NOT EXISTS `prilezitost` (
   CONSTRAINT `Relationship20` FOREIGN KEY (`id_stav_prilezitost`) REFERENCES `stav_prilezitost` (`id_stav_prilezitost`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.prilezitost: ~5 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.prilezitost: ~6 rows (přibližně)
 /*!40000 ALTER TABLE `prilezitost` DISABLE KEYS */;
 INSERT INTO `prilezitost` (`id_prilezitost`, `kurz`, `id_zapas`, `id_typ_prilezitosti`, `id_stav_prilezitost`) VALUES
 	(24, 2.00, 6, 2, 1),
@@ -218,8 +218,12 @@ CREATE TABLE IF NOT EXISTS `prilezitost_tiketu` (
   CONSTRAINT `Relationship4` FOREIGN KEY (`id_tiket`) REFERENCES `tiket` (`id_tiket`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.prilezitost_tiketu: ~0 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.prilezitost_tiketu: ~3 rows (přibližně)
 /*!40000 ALTER TABLE `prilezitost_tiketu` DISABLE KEYS */;
+INSERT INTO `prilezitost_tiketu` (`id_prilezitost`, `id_tiket`) VALUES
+	(25, 1),
+	(28, 1),
+	(25, 2);
 /*!40000 ALTER TABLE `prilezitost_tiketu` ENABLE KEYS */;
 
 
@@ -249,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `sezona` (
   PRIMARY KEY (`id_sezony`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.sezona: ~0 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.sezona: ~1 rows (přibližně)
 /*!40000 ALTER TABLE `sezona` DISABLE KEYS */;
 INSERT INTO `sezona` (`id_sezony`, `sezona`, `aktivni`) VALUES
 	(1, '2015/2016', 1);
@@ -332,13 +336,19 @@ CREATE TABLE IF NOT EXISTS `tiket` (
   `vyhra` int(11) DEFAULT NULL,
   `celkovy_kurz` decimal(10,2) DEFAULT NULL,
   `id_uzivatel` int(11) NOT NULL,
+  `id_stav` int(11) DEFAULT '1',
   PRIMARY KEY (`id_tiket`),
   KEY `IX_Relationship16` (`id_uzivatel`),
+  KEY `FK_tiket_stav_prilezitost` (`id_stav`),
+  CONSTRAINT `FK_tiket_stav_prilezitost` FOREIGN KEY (`id_stav`) REFERENCES `stav_prilezitost` (`id_stav_prilezitost`),
   CONSTRAINT `Relationship16` FOREIGN KEY (`id_uzivatel`) REFERENCES `uzivatel` (`id_uzivatel`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.tiket: ~0 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.tiket: ~2 rows (přibližně)
 /*!40000 ALTER TABLE `tiket` DISABLE KEYS */;
+INSERT INTO `tiket` (`id_tiket`, `castka`, `datum_vytvoreni`, `datum_vyhodnoceni`, `vyhra`, `celkovy_kurz`, `id_uzivatel`, `id_stav`) VALUES
+	(1, 100, '2016-04-05 12:16:38', NULL, NULL, NULL, 2, 1),
+	(2, 100, '2016-04-05 16:05:22', NULL, NULL, NULL, 2, 1);
 /*!40000 ALTER TABLE `tiket` ENABLE KEYS */;
 
 
@@ -384,7 +394,7 @@ CREATE TABLE IF NOT EXISTS `uzivatel` (
 /*!40000 ALTER TABLE `uzivatel` DISABLE KEYS */;
 INSERT INTO `uzivatel` (`id_uzivatel`, `uzivatelske_jmeno`, `heslo`, `email`, `datum_narozeni`, `zustatek`, `jmeno`, `prijmeni`, `telefon`, `datum_registrace`, `id_role`) VALUES
 	(1, 'superadmin', '955db0b81ef1989b4a4dfeae8061a9a6', 'superadmin@4win.cz', '0000-00-00', 0, 'Michal', 'Malý', '737474245', '0000-00-00', 1),
-	(2, 'Lizardor', '955db0b81ef1989b4a4dfeae8061a9a6', 'lizardor@4win.cz', '1992-01-15', 2135, 'Michal', 'Malý', '737474245', '2016-02-09', 2),
+	(2, 'Lizardor', '955db0b81ef1989b4a4dfeae8061a9a6', 'lizardor@4win.cz', '1992-01-15', 1935, 'Michal', 'Malý', '737474245', '2016-02-09', 2),
 	(3, 'Timonek', '955db0b81ef1989b4a4dfeae8061a9a6', 'timonek@4win.cz', '1991-12-31', 0, 'Jirka', 'Vácha', '742714536', '2016-02-09', 2);
 /*!40000 ALTER TABLE `uzivatel` ENABLE KEYS */;
 
@@ -411,7 +421,7 @@ CREATE TABLE IF NOT EXISTS `zapas` (
   CONSTRAINT `Relationship18` FOREIGN KEY (`id_klub`) REFERENCES `klub` (`id_klub`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
--- Exportování dat pro tabulku sazkovka.zapas: ~0 rows (přibližně)
+-- Exportování dat pro tabulku sazkovka.zapas: ~2 rows (přibližně)
 /*!40000 ALTER TABLE `zapas` DISABLE KEYS */;
 INSERT INTO `zapas` (`id_zapas`, `datum_zapasu`, `kolo`, `skore_domaci`, `skore_hoste`, `Informace`, `id_hoste`, `id_klub`, `id_liga`, `zobrazit`) VALUES
 	(6, '2016-03-30 13:00:00', 6, 2, 2, '', 2, 1, 1, 1),

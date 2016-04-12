@@ -131,19 +131,19 @@
 			<tbody>
 			<tr>
 				<td>Datum podání tiketu</td>
-				<td>15.3.2016 14:40:47</td>
+				<td>{$tiket->datum|date: '%d.%m.%Y %H:%S:%M'}</td>
 			</tr>
 			<tr>
 				<td>Celkový kurz</td>
-				<td>38.13</td>
+				<td>{$tiket->kurz}</td>
 			</tr>
 			<tr>
 				<td>Vsazená částka</td>
-				<td>15.3.2016 14:40:47</td>
+				<td>{$tiket->castka} Kč</td>
 			</tr>
 			<tr class="win">
-				<td>Výhra</td>
-				<td>0,00 Kč</td>
+				<td>{if $tiket->stav == 1}Potencionální výhra{else}Výhra{/if}</td>
+				<td>{if $tiket->stav == 3}0,00{else}{$tiket->vyhra}{/if} Kč</td>
 			</tr>
 			</tbody>
 		</table>

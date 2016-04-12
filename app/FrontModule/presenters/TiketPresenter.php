@@ -25,6 +25,7 @@ class TiketPresenter extends BasePresenter {
 	public function actionId($id){
 		$this->template->zapasy = $this->ticketModel->getTicketMatches($id);
 		$this->template->username = $this->ticketModel->getUserByTicketID($id);
+		$this->template->tiket = $this->ticketModel->getTicketMoneyAndKurz($id);
 	}
 
 }

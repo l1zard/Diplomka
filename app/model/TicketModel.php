@@ -87,4 +87,25 @@ class TicketModel extends Nette\Object {
 		JOIN uzivatel ON tiket.id_uzivatel = uzivatel.id_uzivatel
 		WHERE id_tiket = ?", $idTicket)->fetch();
 	}
+	
+	public function getTicketMoneyAndKurz($idTicket){
+		$row = $this->database->query("SELECT kurz  FROM tiket
+		JOIN prilezitost_tiketu ON tiket.id_tiket = prilezitost_tiketu.id_tiket
+		JOIN prilezitost ON prilezitost_tiketu.id_prilezitost = prilezitost.id_prilezitost
+		WHERE tiket.id_tiket = ?", $idTicket)->fetchAll();
+		$summary = 1;
+		foreach($row as $item){
+			$summary = $summary * $item->kurz;
+		}
+		$row = $this->database->query("SELECT castka, datum_vytvoreni, id_stav FROM tiket WHERE id_tiket = ?", $idTicket)->fetch();
+		$array = array(
+			"kurz" => $summary,
+			"castka" => $row->castka,
+			"datum" => $row->datum_vytvoreni,
+			"stav" => $row->id_stav,
+			"vyhra" => $summary * $row->castka
+			
+		);
+		return Nette\Database\Row::from($array);
+	}
 }
