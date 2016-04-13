@@ -66,7 +66,7 @@ class TicketModel extends Nette\Object {
 		JOIN klub as hoste ON zapas.id_hoste = hoste.id_klub
 		WHERE tiket.id_tiket = ?", $idTicket)->fetchAll();
 		foreach($rows as $row) {
-			$row->typ_prilezitost = MatchModel::getTypPrilezitostString(1);
+			$row->typ_prilezitost = MatchModel::getTypPrilezitostString($row->id_typ_prilezitosti);
 			if($row->stav_prilezitost == 1) {
 				$row->stav  = "question";
 				$row->color = "1AADFF";

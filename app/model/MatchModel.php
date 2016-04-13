@@ -173,9 +173,10 @@ class MatchModel extends Nette\Object {
 	public function getIncommingMatchs(){
 		$zapasy = $this->database->query("SELECT id_zapas, datum_zapasu, domaci.nazev_klubu as klubdomaci, hoste.nazev_klubu as klubhoste FROM zapas t1
 		JOIN klub as hoste ON t1.id_hoste = hoste.id_klub
-		JOIN klub as domaci ON t1.id_klub = domaci.id_klub")->fetchAll();
+		JOIN klub as domaci ON t1.id_klub = domaci.id_klub
+		WHERE t1.zobrazit = 1 AND datum_zapasu > (NOW() - INTERVAL 5 MINUTE)")->fetchAll();
 		foreach($zapasy as $zapas){
-			$opportunitys = $this->database->query("SELECT id_prilezitost, kurz, id_typ_prilezitosti, typ_prilezitost.typ as typ FROM prilezitost JOIN typ_prilezitost ON prilezitost.id_typ_prilezitosti = typ_prilezitost.id_typ_prilezitost WHERE id_zapas = ?", $zapas->id_zapas)->fetchAll();
+			$opportunitys = $this->database->query("SELECT id_prilezitost, kurz, id_typ_prilezitosti, typ_prilezitost.typ as typ FROM prilezitost JOIN typ_prilezitost ON prilezitost.id_typ_prilezitosti = typ_prilezitost.id_typ_prilezitost WHERE id_zapas = ? ORDER BY FIELD(typ_prilezitost.typ,\"domaci\",\"remiza\",\"hoste\");", $zapas->id_zapas)->fetchAll();
 			$zapas->prilezitosti = $opportunitys;
 		}
 		return $zapasy;
