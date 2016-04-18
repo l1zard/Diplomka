@@ -401,3 +401,15 @@ span.time{
 .betbutton{
 	width: 70px;
 }
+
+.spinner{
+	position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.10);
+    width: 100%;
+    height: 100%;
+	background-image: url('../spinner.gif');
+	background-repeat: no-repeat;
+	background-position: center center;
+}

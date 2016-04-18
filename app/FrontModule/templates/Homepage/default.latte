@@ -4,7 +4,9 @@
 			<i class="fa fa-fw fa-futbol-o"></i> Fotbal
 		</div>
 		<ul>
-			<li><img src="{$basePath}/images/loga_lig/synot_liga.png" width="20px" />Synot Liga</li>
+		{foreach $leagues as $league}
+			<a n:href="changeLeague! $league->id_liga" class="ajax"><li><img src="{$basePath}/images/loga_lig/{$league->logo}" width="20px" />{$league->nazev_ligy}</li></a>
+		{/foreach}
 		</ul>
 	</div>
 	<div class="right-block">
@@ -59,7 +61,9 @@
 		{/snippet}
 
 	</div>
+	{snippet leagueMatches}
 	<div class="main-block">
+		
 		<div class="block-header">
 			<img src="{$basePath}/images/loga_lig/synot_liga.png" width="20px" /> Synot Liga
 		</div>
@@ -71,6 +75,7 @@
 				<th class="typ-prilezitost">0</th>
 				<th class="typ-prilezitost">2</th>
 			</tr>
+			
 			{foreach $matches as $match}
 				<tr>
 					<td>{$match->klubdomaci} - {$match->klubhoste}
@@ -82,12 +87,13 @@
 					{/foreach}
 				</tr>
 			{/foreach}
+			
 			</tbody>
 		</table>
+		
 	</div>
-
-
-
+	
+{/snippet}
 
 
 

@@ -6,6 +6,7 @@ use Nette;
 use App\Model;
 use App\Model\MatchModel;
 use App\Model\TicketModel;
+use App\Model\LeagueModel;
 use Nette\Application\UI;
 
 class HomepagePresenter extends BasePresenter {
@@ -16,10 +17,18 @@ class HomepagePresenter extends BasePresenter {
 	/** @var TicketModel @inject */
 	public $ticketModel;
 
+	/** @var LeagueModel @inject */
+	public $leagueModel;
+	
+	
+	public function startup(){
+		parent::startup();
+		$this->template->matches     = $this->leagueModel->getListedMatchesByLeague(1);
+	}
 	public function renderDefault() {
 		$this->template->anyVariable = 'any value';
-		$this->template->matches     = $this->matchModel->getIncommingMatchs();
 		$this->template->tiket       = $this->session->getSection('tiket');
+		$this->template->leagues     = $this->leagueModel->getAllLeagues();
 	}
 
 	public function handleAddToTicket($idMatch, $idOppurtiny) {
@@ -111,5 +120,10 @@ class HomepagePresenter extends BasePresenter {
 
 		$this->redrawControl('ticketSnippet');
 
+	}
+
+	public function handleChangeLeague($idLeague) {
+		$this->template->matches     = $this->leagueModel->getListedMatchesByLeague($idLeague);
+		$this->redrawControl('leagueMatches');
 	}
 }
